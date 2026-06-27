@@ -76,9 +76,18 @@ const StripePayment = forwardRef<StripePaymentHandle, StripePaymentProps>(
 
     return (
       <div className="mt-5">
-        {/* Apple Pay / Google Pay / Link express buttons */}
+        {/* Apple Pay / Google Pay / Link express buttons.
+            `always` makes the wallet buttons show even when the customer has no
+            active saved card (Stripe still hides them on unsupported platforms
+            or currencies). */}
         <ExpressCheckoutElement
-          options={{ emailRequired: true }}
+          options={{
+            emailRequired: true,
+            paymentMethods: {
+              applePay: "always",
+              googlePay: "always",
+            },
+          }}
           onReady={handleExpressReady}
           onConfirm={handleExpressConfirm}
         />
