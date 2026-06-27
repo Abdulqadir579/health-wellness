@@ -53,9 +53,17 @@ const StripePayment = forwardRef<StripePaymentHandle, StripePaymentProps>(
 
     return (
       <div className="mt-5">
-        <PaymentElement onReady={() => setReady(true)} />
+        <PaymentElement
+          onReady={() => setReady(true)}
+          onLoadError={(event) =>
+            setErrorMessage(
+              event.error?.message ??
+                "Couldn't load payment options. Check your Stripe publishable key."
+            )
+          }
+        />
 
-        {!ready && (
+        {!ready && !errorMessage && (
           <p className="text-sm text-dark-5 mt-2">Loading payment options…</p>
         )}
 

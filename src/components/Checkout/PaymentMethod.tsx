@@ -78,7 +78,12 @@ const PaymentMethod = ({
           {/* <!-- Stripe Payment Element renders here when card is selected --> */}
           {payment === "card" && (
             <div className="pl-8">
-              {clientSecret && options ? (
+              {!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ? (
+                <p className="text-red text-sm mt-2">
+                  Payment is unavailable: missing Stripe publishable key. Set
+                  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY and redeploy.
+                </p>
+              ) : clientSecret && options ? (
                 <Elements stripe={stripePromise} options={options}>
                   <StripePayment
                     ref={paymentRef}
