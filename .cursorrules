@@ -1,0 +1,75 @@
+# Project: Wellness Shop (built on next-commerce-community template)
+
+## What this is
+A personal health & wellness e-commerce store (skincare, supplements, personal
+care), ~50 products. Built on the `next-commerce-community` template. The goal
+is to keep the template's UI/UX and add REAL Stripe payments (card, Apple Pay,
+Google Pay) where the template currently only has a fake payment UI.
+
+## Stack (already in the template — do not replace)
+- Next.js 16 (App Router) + React 19 + TypeScript
+- Redux Toolkit for cart state (`src/redux/features/cart-slice.ts`)
+- Tailwind CSS
+- Products currently in `src/components/Shop/shopData.ts` (static array, NOT
+  Sanity yet — Sanity packages are installed but unused; keep it this way unless
+  the user explicitly asks to move to Sanity)
+- next-auth (login), nodemailer (email) — already present
+
+## What we are ADDING (the main task)
+Real Stripe payment processing:
+- `src/lib/stripe.ts` — Stripe server client
+- `src/app/api/checkout/route.ts` — creates a Stripe PaymentIntent
+- `src/app/api/webhook/route.ts` — receives payment confirmation
+- `src/components/Checkout/StripePayment.tsx` — Stripe Payment Element
+  (this is where Apple Pay / Google Pay render automatically)
+- Wire these into existing `PaymentMethod.tsx` and `Checkout/index.tsx`
+
+## Key facts about the existing code
+- Cart items shape (from cart-slice.ts):
+  `{ id: number, title: string, price: number, discountedPrice: number,
+     quantity: number, imgs?: {...} }`
+- Cart total comes from `selectTotalPrice` = sum of `discountedPrice * quantity`
+- `selectCartItems` / `selectTotalPrice` selectors live in cart-slice.ts
+- Product source of truth for prices: `src/components/Shop/shopData.ts`
+- The checkout `<form>` in `Checkout/index.tsx` currently has NO submit handler
+- `PaymentMethod.tsx` is currently just radio buttons (bank/cash/paypal) with
+  no real processing
+
+## Critical rules — do not break these
+1. **Never trust prices from the client / Redux.** The checkout API route MUST
+   recalculate the order total server-side by looking up each item's
+   `discountedPrice` in `shopData.ts` using the item `id`. The client only sends
+   `[{ id, quantity }]`.
+2. **Currency: AED.** Stripe amounts are in fils — multiply by 100 and
+   Math.round. (Template demo prices look like USD; when the user adds real
+   products, treat the numbers as AED.)
+3. **Payment Element handles Apple Pay / Google Pay automatically** via
+   `automatic_payment_methods: { enabled: true }`. Do NOT build custom wallet
+   buttons.
+4. **Apple Pay only renders on HTTPS + Safari/iOS** — never on localhost. This
+   is expected; don't try to "fix" it. Test wallets on the deployed Vercel URL.
+5. The webhook route must read the **raw body** with `req.text()` (never
+   `req.json()`) so Stripe signature verification works.
+6. Keep the template's existing components, styling, and Redux structure intact.
+   Add payment as a new layer; don't rewrite cart or product logic.
+
+## Conventions
+- Use the `@/` import alias (maps to `src/`).
+- `"use client"` only where needed (payment form, anything with hooks/state).
+- New API routes go under `src/app/api/`.
+
+## Env vars (never commit real values; put in .env.local)
+- NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+- STRIPE_SECRET_KEY
+- STRIPE_WEBHOOK_SECRET
+
+## Tasks the user may do next
+- Replace demo electronics in `shopData.ts` with real wellness products
+- Replace product images in `public/images/products/`
+- Add order persistence + email confirmation (nodemailer is already installed)
+- Optionally migrate products to Sanity later
+
+## When unsure
+Keep it simple and cheap to run (~50 products, personal shop). Ask before large
+architectural changes (e.g. moving to Sanity, adding a database). Explain the
+plan before writing significant code.
