@@ -6,6 +6,7 @@ import { useModalContext } from "@/app/context/QuickViewModalContext";
 import { updateQuickView } from "@/redux/features/quickView-slice";
 import { addItemToCart } from "@/redux/features/cart-slice";
 import { addItemToWishlist } from "@/redux/features/wishlist-slice";
+import { updateproductDetails } from "@/redux/features/product-details";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import Link from "next/link";
@@ -38,6 +39,10 @@ const SingleListItem = ({ item }: { item: Product }) => {
         quantity: 1,
       })
     );
+  };
+
+  const handleProductDetails = () => {
+    dispatch(updateproductDetails({ ...item }));
   };
 
   return (
@@ -112,12 +117,17 @@ const SingleListItem = ({ item }: { item: Product }) => {
         <div className="w-full flex flex-col gap-5 sm:flex-row sm:items-center justify-center sm:justify-between py-5 px-4 sm:px-7.5 lg:pl-11 lg:pr-12">
           <div>
             <h3 className="font-medium text-dark ease-out duration-200 hover:text-blue mb-1.5">
-              <Link href="/shop-details"> {item.title} </Link>
+              <Link href={`/shop-details/${item.id}`} onClick={handleProductDetails}>
+                {" "}
+                {item.title}{" "}
+              </Link>
             </h3>
 
             <span className="flex items-center gap-2 font-medium text-lg">
-              <span className="text-dark">${item.discountedPrice}</span>
-              <span className="text-dark-4 line-through">${item.price}</span>
+              <span className="text-dark">AED {item.discountedPrice}</span>
+              {item.price > item.discountedPrice && (
+                <span className="text-dark-4 line-through">AED {item.price}</span>
+              )}
             </span>
           </div>
 

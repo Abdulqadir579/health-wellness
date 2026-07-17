@@ -3,7 +3,7 @@ import PaymentSuccess from "@/components/Checkout/PaymentSuccess";
 
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Order Confirmation | NextCommerce",
+  title: "Order Confirmation | Global Supply 600",
   description: "Your order confirmation page",
 };
 

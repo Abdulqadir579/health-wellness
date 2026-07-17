@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { updateQuickView } from "@/redux/features/quickView-slice";
 import { addItemToCart } from "@/redux/features/cart-slice";
+import { updateproductDetails } from "@/redux/features/product-details";
 import Image from "next/image";
 import Link from "next/link";
 import { addItemToWishlist } from "@/redux/features/wishlist-slice";
@@ -37,6 +38,10 @@ const SingleItem = ({ item }: { item: Product }) => {
         quantity: 1,
       })
     );
+  };
+
+  const handleProductDetails = () => {
+    dispatch(updateproductDetails({ ...item }));
   };
 
   return (
@@ -81,12 +86,20 @@ const SingleItem = ({ item }: { item: Product }) => {
           </div>
 
           <h3 className="font-medium text-dark ease-out duration-200 hover:text-blue mb-1.5">
-            <Link href="/shop-details"> {item.title} </Link>
+            <Link
+              href={`/shop-details/${item.id}`}
+              onClick={handleProductDetails}
+            >
+              {" "}
+              {item.title}{" "}
+            </Link>
           </h3>
 
           <span className="flex items-center justify-center gap-2 font-medium text-lg">
-            <span className="text-dark">${item.discountedPrice}</span>
-            <span className="text-dark-4 line-through">${item.price}</span>
+            <span className="text-dark">AED {item.discountedPrice}</span>
+            {item.price > item.discountedPrice && (
+              <span className="text-dark-4 line-through">AED {item.price}</span>
+            )}
           </span>
         </div>
 

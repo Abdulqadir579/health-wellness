@@ -1,57 +1,52 @@
-"use client";
-import { useState, useEffect } from "react";
 import "../css/euclid-circular-a-font.css";
 import "../css/style.css";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import { serif, sans } from "../fonts";
+import { Metadata } from "next";
+import ClientLayout from "./ClientLayout";
 
-import { ModalProvider } from "../context/QuickViewModalContext";
-import { CartModalProvider } from "../context/CartSidebarModalContext";
-import { ReduxProvider } from "@/redux/provider";
-import QuickViewModal from "@/components/Common/QuickViewModal";
-import CartSidebarModal from "@/components/Common/CartSidebarModal";
-import { PreviewSliderProvider } from "../context/PreviewSliderContext";
-import PreviewSliderModal from "@/components/Common/PreviewSlider";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://globalsupply600.com";
 
-import ScrollToTop from "@/components/Common/ScrollToTop";
-import PreLoader from "@/components/Common/PreLoader";
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: "Global Supply 600 | Your trusted Partner",
+  description:
+    "Global Supply 600 — Your trusted Partner for premium antique clothing, handicrafts, and shawls.",
+  icons: {
+    icon: "/images/logo/logo-gs600.png",
+    apple: "/images/logo/logo-gs600.png",
+  },
+  openGraph: {
+    type: "website",
+    title: "Global Supply 600 | Your trusted Partner",
+    description:
+      "Premium antique clothing, handicrafts, and shawls. Your trusted Partner.",
+    url: siteUrl,
+    siteName: "Global Supply 600",
+    images: [
+      {
+        url: "/images/logo/logo-gs600.png",
+        width: 500,
+        height: 500,
+        alt: "Global Supply 600",
+      },
+    ],
+  },
+};
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
-  }, []);
-
   return (
-    <html lang="en" suppressHydrationWarning={true}>
+    <html
+      lang="en"
+      suppressHydrationWarning={true}
+      className={`${sans.variable} ${serif.variable}`}
+    >
       <body>
-        {loading ? (
-          <PreLoader />
-        ) : (
-          <>
-            <ReduxProvider>
-              <CartModalProvider>
-                <ModalProvider>
-                  <PreviewSliderProvider>
-                    <Header />
-                    {children}
-
-                    <QuickViewModal />
-                    <CartSidebarModal />
-                    <PreviewSliderModal />
-                  </PreviewSliderProvider>
-                </ModalProvider>
-              </CartModalProvider>
-            </ReduxProvider>
-            <ScrollToTop />
-            <Footer />
-          </>
-        )}
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

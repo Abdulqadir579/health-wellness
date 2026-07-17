@@ -315,11 +315,13 @@ const QuickViewModal = () => {
 
                   <span className="flex items-center gap-2">
                     <span className="font-semibold text-dark text-xl xl:text-heading-4">
-                      ${product.discountedPrice}
+                      AED {product.discountedPrice}
                     </span>
-                    <span className="font-medium text-dark-4 text-lg xl:text-2xl line-through">
-                      ${product.price}
-                    </span>
+                    {product.price > product.discountedPrice && (
+                      <span className="font-medium text-dark-4 text-lg xl:text-2xl line-through">
+                        AED {product.price}
+                      </span>
+                    )}
                   </span>
                 </div>
 

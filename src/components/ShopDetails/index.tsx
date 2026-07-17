@@ -1,13 +1,18 @@
 "use client";
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Breadcrumb from "../Common/Breadcrumb";
 import Image from "next/image";
 import Newsletter from "../Common/Newsletter";
 import RecentlyViewdItems from "./RecentlyViewd";
 import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
-import { useAppSelector } from "@/redux/store";
+import { useAppSelector, AppDispatch } from "@/redux/store";
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "@/redux/features/cart-slice";
+import { addItemToWishlist } from "@/redux/features/wishlist-slice";
+import { updateproductDetails } from "@/redux/features/product-details";
+import { Product } from "@/types/product";
 
-const ShopDetails = () => {
+const ShopDetails = ({ product: productProp }: { product?: Product }) => {
   const [activeColor, setActiveColor] = useState("blue");
   const { openPreviewModal } = usePreviewSlider();
   const [previewImg, setPreviewImg] = useState(0);
@@ -16,6 +21,9 @@ const ShopDetails = () => {
   const [type, setType] = useState("active");
   const [sim, setSim] = useState("dual");
   const [quantity, setQuantity] = useState(1);
+  const [selectedSize, setSelectedSize] = useState("M");
+
+  const sizes = ["S", "M", "L", "XL", "XXL"];
 
   const [activeTab, setActiveTab] = useState("tabOne");
 
@@ -75,20 +83,50 @@ const ShopDetails = () => {
 
   const colors = ["red", "blue", "orange", "pink", "purple"];
 
-  const alreadyExist = localStorage.getItem("productDetails");
-  const productFromStorage = useAppSelector(
+  const dispatch = useDispatch<AppDispatch>();
+  const productFromStore = useAppSelector(
     (state) => state.productDetailsReducer.value
   );
 
-  const product = alreadyExist ? JSON.parse(alreadyExist) : productFromStorage;
+  // Prefer the freshly-clicked product (redux); fall back to the last-viewed
+  // product persisted in localStorage on hard refresh / direct navigation.
+  const cached =
+    typeof window !== "undefined"
+      ? localStorage.getItem("productDetails")
+      : null;
+  const product =
+    productProp && productProp.title
+      ? productProp
+      : productFromStore && productFromStore.title
+      ? productFromStore
+      : cached
+      ? JSON.parse(cached)
+      : productFromStore;
+
+  // When the product comes from the route (deep link), sync it into redux so
+  // the rest of the app (recently viewed, quick view) stays consistent.
+  useEffect(() => {
+    if (productProp && productProp.title) {
+      dispatch(updateproductDetails({ ...productProp }));
+    }
+  }, [productProp, dispatch]);
 
   useEffect(() => {
-    localStorage.setItem("productDetails", JSON.stringify(product));
+    if (product && product.title) {
+      localStorage.setItem("productDetails", JSON.stringify(product));
+    }
   }, [product]);
 
-  // pass the product here when you get the real data.
   const handlePreviewSlider = () => {
     openPreviewModal();
+  };
+
+  const handleAddToCart = () => {
+    dispatch(addItemToCart({ ...product, quantity }));
+  };
+
+  const handleAddToWishlist = () => {
+    dispatch(addItemToWishlist({ ...product, status: "available", quantity }));
   };
 
   return (
@@ -166,10 +204,6 @@ const ShopDetails = () => {
                     <h2 className="font-semibold text-xl sm:text-2xl xl:text-custom-3 text-dark">
                       {product.title}
                     </h2>
-
-                    <div className="inline-flex font-medium text-custom-sm text-white bg-blue rounded py-0.5 px-2.5">
-                      30% OFF
-                    </div>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-5.5 mb-4.5">
@@ -316,12 +350,14 @@ const ShopDetails = () => {
 
                   <h3 className="font-medium text-custom-1 mb-4.5">
                     <span className="text-sm sm:text-base text-dark">
-                      Price: ${product.price}
+                      Price: AED {product.discountedPrice}
                     </span>
-                    <span className="line-through">
-                      {" "}
-                      ${product.discountedPrice}{" "}
-                    </span>
+                    {product.price > product.discountedPrice && (
+                      <span className="line-through">
+                        {" "}
+                        AED {product.price}{" "}
+                      </span>
+                    )}
                   </h3>
 
                   <ul className="flex flex-col gap-2">
@@ -366,12 +402,50 @@ const ShopDetails = () => {
                           fill="#3C50E0"
                         />
                       </svg>
-                      Sales 30% Off Use Code: PROMO30
+                      Authentic, quality-checked pieces
                     </li>
                   </ul>
 
                   <form onSubmit={(e) => e.preventDefault()}>
                     <div className="flex flex-col gap-4.5 border-y border-gray-3 mt-7.5 mb-9 py-9">
+                      <div className="flex items-center gap-4">
+                        <div className="min-w-[95px]">
+                          <h4 className="font-medium text-dark">Category:</h4>
+                        </div>
+                        <span>{product.category || "—"}</span>
+                      </div>
+
+                      <div className="flex items-center gap-4">
+                        <div className="min-w-[95px]">
+                          <h4 className="font-medium text-dark">Size:</h4>
+                        </div>
+                        <div className="flex items-center flex-wrap gap-2.5">
+                          {sizes.map((size) => (
+                            <button
+                              key={size}
+                              type="button"
+                              onClick={() => setSelectedSize(size)}
+                              className={`flex items-center justify-center min-w-[44px] h-10 rounded-md border px-3 text-custom-sm ease-out duration-200 ${
+                                selectedSize === size
+                                  ? "border-blue bg-blue text-white"
+                                  : "border-gray-3 text-dark hover:border-blue"
+                              }`}
+                            >
+                              {size}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-4">
+                        <div className="min-w-[95px]">
+                          <h4 className="font-medium text-dark">Availability:</h4>
+                        </div>
+                        <span className="text-green">In stock</span>
+                      </div>
+                    </div>
+
+                    <div className="hidden">
                       {/* <!-- details item --> */}
                       <div className="flex items-center gap-4">
                         <div className="min-w-[65px]">
@@ -664,15 +738,18 @@ const ShopDetails = () => {
                         </button>
                       </div>
 
-                      <a
-                        href="#"
+                      <button
+                        type="button"
+                        onClick={handleAddToCart}
                         className="inline-flex font-medium text-white bg-blue py-3 px-7 rounded-md ease-out duration-200 hover:bg-blue-dark"
                       >
-                        Purchase Now
-                      </a>
+                        Add to Cart
+                      </button>
 
-                      <a
-                        href="#"
+                      <button
+                        type="button"
+                        onClick={handleAddToWishlist}
+                        aria-label="button for add to wishlist"
                         className="flex items-center justify-center w-12 h-12 rounded-md border border-gray-3 ease-out duration-200 hover:text-white hover:bg-dark hover:border-transparent"
                       >
                         <svg
@@ -690,7 +767,7 @@ const ShopDetails = () => {
                             fill=""
                           />
                         </svg>
-                      </a>
+                      </button>
                     </div>
                   </form>
                 </div>

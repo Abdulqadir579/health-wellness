@@ -1,12 +1,8 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Breadcrumb from "../Common/Breadcrumb";
 import CustomSelect from "./CustomSelect";
 import CategoryDropdown from "./CategoryDropdown";
-import GenderDropdown from "./GenderDropdown";
-import SizeDropdown from "./SizeDropdown";
-import ColorsDropdwon from "./ColorsDropdwon";
-import PriceDropdown from "./PriceDropdown";
 import shopData from "../Shop/shopData";
 import SingleGridItem from "../Shop/SingleGridItem";
 import SingleListItem from "../Shop/SingleListItem";
@@ -15,6 +11,8 @@ const ShopWithSidebar = () => {
   const [productStyle, setProductStyle] = useState("grid");
   const [productSidebar, setProductSidebar] = useState(false);
   const [stickyMenu, setStickyMenu] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("0");
 
   const handleStickyMenu = () => {
     if (window.scrollY >= 80) {
@@ -30,53 +28,59 @@ const ShopWithSidebar = () => {
     { label: "Old Products", value: "2" },
   ];
 
-  const categories = [
-    {
-      name: "Desktop",
-      products: 10,
-      isRefined: true,
-    },
-    {
-      name: "Laptop",
-      products: 12,
-      isRefined: false,
-    },
-    {
-      name: "Monitor",
-      products: 30,
-      isRefined: false,
-    },
-    {
-      name: "UPS",
-      products: 23,
-      isRefined: false,
-    },
-    {
-      name: "Phone",
-      products: 10,
-      isRefined: false,
-    },
-    {
-      name: "Watch",
-      products: 13,
-      isRefined: false,
-    },
-  ];
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
-  const genders = [
-    {
-      name: "Men",
-      products: 10,
-    },
-    {
-      name: "Women",
-      products: 23,
-    },
-    {
-      name: "Unisex",
-      products: 8,
-    },
-  ];
+  // Build the category list (with live counts) straight from the product data
+  // so it always matches shopData.
+  const categories = useMemo(() => {
+    const counts: Record<string, number> = {};
+    shopData.forEach((item) => {
+      const cat = item.category || "Other";
+      counts[cat] = (counts[cat] || 0) + 1;
+    });
+    return Object.entries(counts)
+      .sort((a, b) => b[1] - a[1])
+      .map(([name, products]) => ({ name, products }));
+  }, []);
+
+  const toggleCategory = (name: string) => {
+    setSelectedCategories((prev) =>
+      prev.includes(name) ? prev.filter((n) => n !== name) : [...prev, name]
+    );
+  };
+
+  // Read initial category / search from the URL (category tile or header
+  // search). Client-only to avoid Suspense requirements around useSearchParams.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get("category");
+    const q = params.get("search");
+    if (cat) setSelectedCategories([cat]);
+    if (q) setSearchTerm(q);
+  }, []);
+
+  const filteredProducts = useMemo(() => {
+    const term = searchTerm.trim().toLowerCase();
+    const result = shopData.filter((item) => {
+      const matchesCategory = selectedCategories.length
+        ? selectedCategories.includes(item.category || "Other")
+        : true;
+      const matchesSearch = term
+        ? item.title.toLowerCase().includes(term)
+        : true;
+      return matchesCategory && matchesSearch;
+    });
+
+    const sorted = [...result];
+    if (sortBy === "1") {
+      sorted.sort((a, b) => b.reviews - a.reviews); // Best selling
+    } else if (sortBy === "2") {
+      sorted.sort((a, b) => a.id - b.id); // Old products
+    } else {
+      sorted.sort((a, b) => b.id - a.id); // Latest products
+    }
+    return sorted;
+  }, [selectedCategories, searchTerm, sortBy]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleStickyMenu);
@@ -152,24 +156,22 @@ const ShopWithSidebar = () => {
                   <div className="bg-white shadow-1 rounded-lg py-4 px-5">
                     <div className="flex items-center justify-between">
                       <p>Filters:</p>
-                      <button className="text-blue">Clean All</button>
+                      <button
+                        type="button"
+                        onClick={() => setSelectedCategories([])}
+                        className="text-blue"
+                      >
+                        Clean All
+                      </button>
                     </div>
                   </div>
 
                   {/* <!-- category box --> */}
-                  <CategoryDropdown categories={categories} />
-
-                  {/* <!-- gender box --> */}
-                  <GenderDropdown genders={genders} />
-
-                  {/* // <!-- size box --> */}
-                  <SizeDropdown />
-
-                  {/* // <!-- color box --> */}
-                  <ColorsDropdwon />
-
-                  {/* // <!-- price range box --> */}
-                  <PriceDropdown />
+                  <CategoryDropdown
+                    categories={categories}
+                    selectedCategories={selectedCategories}
+                    onToggleCategory={toggleCategory}
+                  />
                 </div>
               </form>
             </div>
@@ -181,11 +183,16 @@ const ShopWithSidebar = () => {
                 <div className="flex items-center justify-between">
                   {/* <!-- top bar left --> */}
                   <div className="flex flex-wrap items-center gap-4">
-                    <CustomSelect options={options} />
+                    <CustomSelect
+                      options={options}
+                      onChange={(option) => setSortBy(option.value)}
+                    />
 
                     <p>
-                      Showing <span className="text-dark">9 of 50</span>{" "}
-                      Products
+                      Showing{" "}
+                      <span className="text-dark">{filteredProducts.length}</span>{" "}
+                      of {shopData.length} Products
+                      {searchTerm ? ` for “${searchTerm}”` : ""}
                     </p>
                   </div>
 
@@ -278,7 +285,7 @@ const ShopWithSidebar = () => {
                     : "flex flex-col gap-7.5"
                 }`}
               >
-                {shopData.map((item, key) =>
+                {filteredProducts.map((item, key) =>
                   productStyle === "grid" ? (
                     <SingleGridItem item={item} key={key} />
                   ) : (

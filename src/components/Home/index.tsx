@@ -7,18 +7,33 @@ import BestSeller from "./BestSeller";
 import CounDown from "./Countdown";
 import Testimonials from "./Testimonials";
 import Newsletter from "../Common/Newsletter";
+import Reveal from "../Common/Reveal";
 
 const Home = () => {
   return (
     <main>
       <Hero />
-      <Categories />
-      <NewArrival />
-      <PromoBanner />
-      <BestSeller />
-      <CounDown />
-      <Testimonials />
-      <Newsletter />
+      <Reveal>
+        <Categories />
+      </Reveal>
+      <Reveal>
+        <NewArrival />
+      </Reveal>
+      <Reveal>
+        <PromoBanner />
+      </Reveal>
+      <Reveal>
+        <BestSeller />
+      </Reveal>
+      <Reveal>
+        <CounDown />
+      </Reveal>
+      <Reveal>
+        <Testimonials />
+      </Reveal>
+      <Reveal>
+        <Newsletter />
+      </Reveal>
     </main>
   );
 };

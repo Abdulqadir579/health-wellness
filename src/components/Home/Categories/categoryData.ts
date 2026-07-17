@@ -1,43 +1,28 @@
 const data = [
   {
-    title: "Televisions",
+    title: "Pashmina & Shawls",
     id: 1,
-    img: "/images/categories/categories-01.png",
+    img: "/images/products/gsp-crimson-court-1.jpg",
   },
   {
-    title: "Laptop & PC",
+    title: "Women's Dresses & Abayas",
     id: 2,
-    img: "/images/categories/categories-02.png",
+    img: "/images/products/gsp-gold-prom-dress-1.avif",
   },
   {
-    title: "Mobile & Tablets",
+    title: "Women's Tops & Sets",
     id: 3,
-    img: "/images/categories/categories-03.png",
+    img: "/images/products/gsp-beige-solid-blouse-1.avif",
   },
   {
-    title: "Games & Videos",
+    title: "Swimwear",
     id: 4,
-    img: "/images/categories/categories-04.png",
+    img: "/images/products/gsp-2026-sexy-women-s-bikini-1.avif",
   },
   {
-    title: "Home Appliances",
+    title: "Men's Clothing",
     id: 5,
-    img: "/images/categories/categories-05.png",
-  },
-  {
-    title: "Health & Sports",
-    id: 6,
-    img: "/images/categories/categories-06.png",
-  },
-  {
-    title: "Watches",
-    id: 7,
-    img: "/images/categories/categories-07.png",
-  },
-  {
-    title: "Televisions",
-    id: 8,
-    img: "/images/categories/categories-04.png",
+    img: "/images/products/gsp-shirt-for-men-1.jpg",
   },
 ];
 

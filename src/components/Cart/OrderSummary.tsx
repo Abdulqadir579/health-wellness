@@ -34,7 +34,7 @@ const OrderSummary = () => {
               </div>
               <div>
                 <p className="text-dark text-right">
-                  ${item.discountedPrice * item.quantity}
+                  AED {item.discountedPrice * item.quantity}
                 </p>
               </div>
             </div>
@@ -47,7 +47,7 @@ const OrderSummary = () => {
             </div>
             <div>
               <p className="font-medium text-lg text-dark text-right">
-                ${totalPrice}
+                AED {totalPrice}
               </p>
             </div>
           </div>

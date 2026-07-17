@@ -1,10 +1,12 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { Product } from "@/types/product";
 import { useModalContext } from "@/app/context/QuickViewModalContext";
 import { updateQuickView } from "@/redux/features/quickView-slice";
 import { addItemToCart } from "@/redux/features/cart-slice";
 import { addItemToWishlist } from "@/redux/features/wishlist-slice";
+import { updateproductDetails } from "@/redux/features/product-details";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import Link from "next/link";
@@ -40,10 +42,24 @@ const SingleGridItem = ({ item }: { item: Product }) => {
     );
   };
 
+  const handleProductDetails = () => {
+    dispatch(updateproductDetails({ ...item }));
+  };
+
   return (
-    <div className="group">
+    <motion.div
+      className="group"
+      whileHover={{ y: -6 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+    >
       <div className="relative overflow-hidden flex items-center justify-center rounded-lg bg-white shadow-1 min-h-[270px] mb-4">
-        <Image src={item.imgs.previews[0]} alt="" width={250} height={250} />
+        <Image
+          src={item.imgs.previews[0]}
+          alt=""
+          width={250}
+          height={250}
+          className="ease-out duration-500 group-hover:scale-110"
+        />
 
         <div className="absolute left-0 bottom-0 translate-y-full w-full flex items-center justify-center gap-2.5 pb-5 ease-linear duration-200 group-hover:translate-y-0">
           <button
@@ -148,14 +164,19 @@ const SingleGridItem = ({ item }: { item: Product }) => {
       </div>
 
       <h3 className="font-medium text-dark ease-out duration-200 hover:text-blue mb-1.5">
-        <Link href="/shop-details"> {item.title} </Link>
+        <Link href={`/shop-details/${item.id}`} onClick={handleProductDetails}>
+          {" "}
+          {item.title}{" "}
+        </Link>
       </h3>
 
       <span className="flex items-center gap-2 font-medium text-lg">
-        <span className="text-dark">${item.discountedPrice}</span>
-        <span className="text-dark-4 line-through">${item.price}</span>
+        <span className="text-dark">AED {item.discountedPrice}</span>
+        {item.price > item.discountedPrice && (
+          <span className="text-dark-4 line-through">AED {item.price}</span>
+        )}
       </span>
-    </div>
+    </motion.div>
   );
 };
 

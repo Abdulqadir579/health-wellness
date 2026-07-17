@@ -2,14 +2,27 @@
 
 import { useState } from "react";
 
-const CategoryItem = ({ category }) => {
-  const [selected, setSelected] = useState(false);
+type Category = {
+  name: string;
+  products: number;
+};
+
+const CategoryItem = ({
+  category,
+  selected,
+  onToggle,
+}: {
+  category: Category;
+  selected: boolean;
+  onToggle: () => void;
+}) => {
   return (
     <button
+      type="button"
       className={`${
         selected && "text-blue"
       } group flex items-center justify-between ease-out duration-200 hover:text-blue `}
-      onClick={() => setSelected(!selected)}
+      onClick={onToggle}
     >
       <div className="flex items-center gap-2">
         <div
@@ -49,7 +62,15 @@ const CategoryItem = ({ category }) => {
   );
 };
 
-const CategoryDropdown = ({ categories }) => {
+const CategoryDropdown = ({
+  categories,
+  selectedCategories,
+  onToggleCategory,
+}: {
+  categories: Category[];
+  selectedCategories: string[];
+  onToggleCategory: (name: string) => void;
+}) => {
   const [toggleDropdown, setToggleDropdown] = useState(true);
 
   return (
@@ -65,6 +86,7 @@ const CategoryDropdown = ({ categories }) => {
       >
         <p className="text-dark">Category</p>
         <button
+          type="button"
           aria-label="button for category dropdown"
           className={`text-dark ease-out duration-200 ${
             toggleDropdown && "rotate-180"
@@ -96,7 +118,12 @@ const CategoryDropdown = ({ categories }) => {
         }`}
       >
         {categories.map((category, key) => (
-          <CategoryItem key={key} category={category} />
+          <CategoryItem
+            key={key}
+            category={category}
+            selected={selectedCategories.includes(category.name)}
+            onToggle={() => onToggleCategory(category.name)}
+          />
         ))}
       </div>
     </div>

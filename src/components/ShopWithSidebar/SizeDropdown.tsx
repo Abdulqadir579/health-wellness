@@ -44,6 +44,18 @@ const SizeDropdown = () => {
         }`}
       >
         <label
+          htmlFor="sizeS"
+          className="cursor-pointer select-none flex items-center rounded-md hover:bg-blue hover:text-white"
+        >
+          <div className="relative">
+            <input type="radio" name="size" id="sizeS" className="sr-only" />
+            <div className="text-custom-sm py-[5px] px-3.5 rounded-[5px]">
+              S
+            </div>
+          </div>
+        </label>
+
+        <label
           htmlFor="sizeM"
           className="cursor-pointer select-none flex items-center rounded-md bg-blue text-white hover:bg-blue hover:text-white"
         >

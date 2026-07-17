@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { stripe } from "@/lib/stripe";
 import { sendOrderConfirmationEmail, OrderEmailItem } from "@/lib/resend";
+import { saveOrder, OrderItemRecord } from "@/lib/orders";
 import shopData from "@/components/Shop/shopData";
 
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
@@ -10,7 +11,7 @@ type StoredItem = { id: number; title: string; quantity: number };
 
 // Rebuild the order line items from shopData (source of truth) using the ids
 // and quantities we stored in the PaymentIntent metadata at checkout time.
-function buildEmailItems(metadataItems: string | undefined): OrderEmailItem[] {
+function buildOrderItems(metadataItems: string | undefined): OrderItemRecord[] {
   if (!metadataItems) return [];
 
   try {
@@ -19,13 +20,44 @@ function buildEmailItems(metadataItems: string | undefined): OrderEmailItem[] {
       const product = shopData.find((p) => p.id === Number(item.id));
       const unitPrice = product?.discountedPrice ?? 0;
       return {
+        id: Number(item.id),
         title: product?.title ?? item.title ?? `Item ${item.id}`,
         quantity: item.quantity,
+        unitPrice,
         lineTotal: unitPrice * item.quantity,
       };
     });
   } catch {
     return [];
+  }
+}
+
+const toEmailItems = (items: OrderItemRecord[]): OrderEmailItem[] =>
+  items.map(({ title, quantity, lineTotal }) => ({
+    title,
+    quantity,
+    lineTotal,
+  }));
+
+// Pull buyer name / phone / shipping address from the charge attached to the
+// PaymentIntent (Stripe collects these in the Payment Element).
+async function getBillingDetails(paymentIntentId: string) {
+  try {
+    const full = await stripe.paymentIntents.retrieve(paymentIntentId, {
+      expand: ["latest_charge"],
+    });
+    const charge = full.latest_charge as Stripe.Charge | null;
+    const billing = charge?.billing_details;
+    return {
+      name: billing?.name ?? null,
+      email: billing?.email ?? null,
+      phone: billing?.phone ?? null,
+      address: (charge?.shipping?.address ??
+        billing?.address ??
+        null) as unknown as Record<string, unknown> | null,
+    };
+  } catch {
+    return { name: null, email: null, phone: null, address: null };
   }
 }
 
@@ -62,20 +94,35 @@ export async function POST(req: Request) {
       const paymentIntent = event.data.object as Stripe.PaymentIntent;
       console.log(`Payment succeeded: ${paymentIntent.id}`);
 
-      const to = paymentIntent.receipt_email;
+      const orderItems = buildOrderItems(paymentIntent.metadata?.items);
+      const amountTotal = paymentIntent.amount / 100; // fils → AED
+      const billing = await getBillingDetails(paymentIntent.id);
+      const to = paymentIntent.receipt_email ?? billing.email;
+
+      // Persist the order first so we have a record even if the email fails.
+      await saveOrder({
+        paymentIntent: paymentIntent.id,
+        email: to,
+        customerName: billing.name,
+        customerPhone: billing.phone,
+        shippingAddress: billing.address,
+        items: orderItems,
+        amountTotal,
+        currency: paymentIntent.currency,
+        status: "paid",
+      });
 
       if (to) {
         await sendOrderConfirmationEmail({
           to,
           orderId: paymentIntent.id,
-          items: buildEmailItems(paymentIntent.metadata?.items),
-          // paymentIntent.amount is in the smallest currency unit (fils).
-          amountTotal: paymentIntent.amount / 100,
+          items: toEmailItems(orderItems),
+          amountTotal,
           currency: paymentIntent.currency,
         });
       } else {
         console.warn(
-          `No receipt_email on ${paymentIntent.id} — skipping confirmation email`
+          `No email on ${paymentIntent.id} — skipping confirmation email`
         );
       }
       break;
@@ -83,6 +130,15 @@ export async function POST(req: Request) {
     case "payment_intent.payment_failed": {
       const paymentIntent = event.data.object as Stripe.PaymentIntent;
       console.warn(`Payment failed: ${paymentIntent.id}`);
+
+      await saveOrder({
+        paymentIntent: paymentIntent.id,
+        email: paymentIntent.receipt_email,
+        items: buildOrderItems(paymentIntent.metadata?.items),
+        amountTotal: paymentIntent.amount / 100,
+        currency: paymentIntent.currency,
+        status: "failed",
+      });
       break;
     }
     default:
