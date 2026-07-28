@@ -1,6 +1,6 @@
 # Free eCommerce Template for Next.js - NextMerce
 
-The free Next.js eCommerce template is a lite version of the NextMerce Next.js eCommerce boilerplate, designed to streamline the launch and management of your online store.
+the free Next.js eCommerce template is a lite version of the NextMerce Next.js eCommerce boilerplate, designed to streamline the launch and management of your online store.
 
 ![NextMerce](https://github.com/user-attachments/assets/57155689-a756-4222-8af7-134e556acae2)
 
