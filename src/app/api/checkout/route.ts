@@ -67,10 +67,9 @@ export async function POST(req: Request) {
     });
   } catch (error) {
     console.error("Checkout error:", error);
-    // Temporary: surface the real Stripe reason to the client for debugging
-    // go-live issues. Revert to a generic message once payments work.
-    const detail =
-      error instanceof Error ? error.message : "Unable to create payment";
-    return NextResponse.json({ error: detail }, { status: 500 });
+    return NextResponse.json(
+      { error: "Unable to create payment" },
+      { status: 500 }
+    );
   }
 }
