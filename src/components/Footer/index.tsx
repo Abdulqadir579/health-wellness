@@ -38,7 +38,7 @@ const Footer = () => {
 
               <li>
                 <a
-                  href="tel:+971582679245"
+                  href="tel:+971544399134"
                   className="flex items-center gap-4.5"
                 >
                   <svg
@@ -65,13 +65,13 @@ const Footer = () => {
                       fill="#7A2E35"
                     />
                   </svg>
-                  +971 58 267 9245
+                  +971 54 439 9134
                 </a>
               </li>
 
               <li>
                 <a
-                  href="mailto:info@globalsupply600.com"
+                  href="mailto:globalsupply600@gmail.com"
                   className="flex items-center gap-4.5"
                 >
                   <svg
@@ -88,7 +88,7 @@ const Footer = () => {
                       fill="#7A2E35"
                     />
                   </svg>
-                  info@globalsupply600.com
+                  globalsupply600@gmail.com
                 </a>
               </li>
             </ul>

@@ -61,10 +61,10 @@ const ShippingPolicyPage = () => {
               <p>
                 For any shipping question, contact{" "}
                 <a
-                  href="mailto:info@globalsupply600.com"
+                  href="mailto:globalsupply600@gmail.com"
                   className="text-blue hover:underline"
                 >
-                  info@globalsupply600.com
+                  globalsupply600@gmail.com
                 </a>
                 .
               </p>

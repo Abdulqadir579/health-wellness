@@ -42,10 +42,10 @@ const RefundPolicyPage = () => {
               <p>
                 Email{" "}
                 <a
-                  href="mailto:info@globalsupply600.com"
+                  href="mailto:globalsupply600@gmail.com"
                   className="text-blue hover:underline"
                 >
-                  info@globalsupply600.com
+                  globalsupply600@gmail.com
                 </a>{" "}
                 with your order number and the item(s) you’d like to return. We’ll
                 share the return instructions and address.

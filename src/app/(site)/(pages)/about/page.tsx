@@ -54,17 +54,17 @@ const AboutPage = () => {
               <p>
                 Burdubai, Dubai, United Arab Emirates. Reach us at{" "}
                 <a
-                  href="mailto:info@globalsupply600.com"
+                  href="mailto:globalsupply600@gmail.com"
                   className="text-blue hover:underline"
                 >
-                  info@globalsupply600.com
+                  globalsupply600@gmail.com
                 </a>{" "}
                 or{" "}
                 <a
-                  href="tel:+971582679245"
+                  href="tel:+971544399134"
                   className="text-blue hover:underline"
                 >
-                  +971 58 267 9245
+                  +971 54 439 9134
                 </a>
                 .
               </p>

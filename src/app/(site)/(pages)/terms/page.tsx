@@ -75,10 +75,10 @@ const TermsPage = () => {
                 These terms are governed by the laws of the United Arab Emirates.
                 For any question, contact{" "}
                 <a
-                  href="mailto:info@globalsupply600.com"
+                  href="mailto:globalsupply600@gmail.com"
                   className="text-blue hover:underline"
                 >
-                  info@globalsupply600.com
+                  globalsupply600@gmail.com
                 </a>
                 .
               </p>

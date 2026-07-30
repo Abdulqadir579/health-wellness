@@ -61,7 +61,7 @@ const Contact = () => {
                         fill="#3C50E0"
                       />
                     </svg>
-                    Phone: +971 58 267 9245
+                    Phone: +971 54 439 9134
                   </p>
 
                   <p className="flex gap-4">
@@ -80,7 +80,7 @@ const Contact = () => {
                         fill="#3C50E0"
                       />
                     </svg>
-                    Burdubai, Dubai, United Arab Emirates — info@globalsupply600.com
+                    Burdubai, Dubai, United Arab Emirates — globalsupply600@gmail.com
                   </p>
                 </div>
               </div>
