@@ -24,6 +24,7 @@ const Checkout = () => {
   const [clientSecret, setClientSecret] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
+  const [consentChecked, setConsentChecked] = useState(false);
 
   const paymentRef = useRef<StripePaymentHandle>(null);
 
@@ -76,6 +77,13 @@ const Checkout = () => {
 
     if (cartItems.length === 0) {
       setFormError("Your cart is empty.");
+      return;
+    }
+
+    if (!consentChecked) {
+      setFormError(
+        "Please confirm you agree that all sales are final before placing your order."
+      );
       return;
     }
 
@@ -223,7 +231,55 @@ const Checkout = () => {
                   clientSecret={clientSecret}
                   paymentRef={paymentRef}
                   onProcessingChange={setIsProcessing}
+                  consentGiven={consentChecked}
+                  onConsentError={() =>
+                    setFormError(
+                      "Please confirm you agree that all sales are final before paying."
+                    )
+                  }
                 />
+
+                {/* <!-- final sale consent --> */}
+                <div className="flex items-start gap-2.5 mt-5">
+                  <input
+                    id="consent"
+                    type="checkbox"
+                    checked={consentChecked}
+                    onChange={(e) => {
+                      setConsentChecked(e.target.checked);
+                      if (e.target.checked) setFormError(null);
+                    }}
+                    className="mt-1 h-4 w-4 shrink-0 cursor-pointer accent-blue"
+                  />
+                  <label
+                    htmlFor="consent"
+                    className="text-custom-sm text-dark-4 cursor-pointer"
+                  >
+                    I understand and agree that{" "}
+                    <span className="text-dark font-medium">
+                      all sales are final
+                    </span>{" "}
+                    and I accept the{" "}
+                    <a
+                      href="/refund-policy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue hover:underline"
+                    >
+                      Refund Policy
+                    </a>{" "}
+                    and{" "}
+                    <a
+                      href="/terms"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue hover:underline"
+                    >
+                      Terms of Use
+                    </a>
+                    .
+                  </label>
+                </div>
 
                 {formError && (
                   <p className="text-red mt-4 text-sm" role="alert">

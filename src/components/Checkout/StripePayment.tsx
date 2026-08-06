@@ -13,6 +13,7 @@ import {
 import type {
   StripeExpressCheckoutElementConfirmEvent,
   StripeExpressCheckoutElementReadyEvent,
+  StripeExpressCheckoutElementClickEvent,
 } from "@stripe/stripe-js";
 
 export type StripePaymentHandle = {
@@ -21,13 +22,15 @@ export type StripePaymentHandle = {
 
 type StripePaymentProps = {
   onProcessingChange?: (processing: boolean) => void;
+  consentGiven?: boolean;
+  onConsentError?: () => void;
 };
 
 // Rendered inside an <Elements> provider. The Express Checkout Element shows
 // Apple Pay / Google Pay / Link buttons (Google Pay renders in Safari too),
 // and the Payment Element below handles card entry.
 const StripePayment = forwardRef<StripePaymentHandle, StripePaymentProps>(
-  ({ onProcessingChange }, ref) => {
+  ({ onProcessingChange, consentGiven, onConsentError }, ref) => {
     const stripe = useStripe();
     const elements = useElements();
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -61,6 +64,19 @@ const StripePayment = forwardRef<StripePaymentHandle, StripePaymentProps>(
 
     useImperativeHandle(ref, () => ({ confirm }));
 
+    // Gate the wallet sheet (Apple Pay / Google Pay / Link): if the customer
+    // hasn't ticked the "all sales are final" consent, we don't call
+    // event.resolve(), so the wallet never opens.
+    const handleExpressClick = (
+      event: StripeExpressCheckoutElementClickEvent
+    ) => {
+      if (!consentGiven) {
+        onConsentError?.();
+        return;
+      }
+      event.resolve();
+    };
+
     const handleExpressConfirm = async (
       event: StripeExpressCheckoutElementConfirmEvent
     ) => {
@@ -89,6 +105,7 @@ const StripePayment = forwardRef<StripePaymentHandle, StripePaymentProps>(
             },
           }}
           onReady={handleExpressReady}
+          onClick={handleExpressClick}
           onConfirm={handleExpressConfirm}
         />
 

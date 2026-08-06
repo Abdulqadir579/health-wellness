@@ -71,7 +71,13 @@ function buildHtml({
       </tbody>
     </table>
 
-    <p style="color:#8d93a5;font-size:12px;margin-top:24px;">
+    <p style="color:#8d93a5;font-size:12px;margin-top:24px;line-height:1.6;border-top:1px solid #eee;padding-top:16px;">
+      By completing this purchase you confirmed that you read and agreed that
+      <strong>all sales are final</strong>, in accordance with our Refund Policy
+      and Terms of Use.
+    </p>
+
+    <p style="color:#8d93a5;font-size:12px;margin-top:16px;">
       Order reference: ${orderId}
     </p>
   </div>`;

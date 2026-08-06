@@ -12,6 +12,8 @@ type PaymentMethodProps = {
   clientSecret: string | null;
   paymentRef: React.Ref<StripePaymentHandle>;
   onProcessingChange: (processing: boolean) => void;
+  consentGiven: boolean;
+  onConsentError: () => void;
 };
 
 const stripePromise = getStripe();
@@ -22,6 +24,8 @@ const PaymentMethod = ({
   clientSecret,
   paymentRef,
   onProcessingChange,
+  consentGiven,
+  onConsentError,
 }: PaymentMethodProps) => {
   const options: StripeElementsOptions | undefined = useMemo(
     () =>
@@ -88,6 +92,8 @@ const PaymentMethod = ({
                   <StripePayment
                     ref={paymentRef}
                     onProcessingChange={onProcessingChange}
+                    consentGiven={consentGiven}
+                    onConsentError={onConsentError}
                   />
                 </Elements>
               ) : (
