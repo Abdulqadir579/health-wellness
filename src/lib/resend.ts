@@ -9,6 +9,9 @@ const FROM = process.env.RESEND_FROM || "Wellness Shop <onboarding@resend.dev>";
 // Merchant inbox that receives a copy of every order for record-keeping.
 const ADMIN_EMAIL = process.env.ORDER_NOTIFICATION_EMAIL;
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://globalsupply600.com";
+
 export type OrderEmailItem = {
   title: string;
   quantity: number;
@@ -30,6 +33,26 @@ const formatMoney = (value: number, currency: string) =>
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })}`;
+
+function buildConsentBlock(): string {
+  return `
+    <div style="margin-top:24px;border-top:1px solid #eee;padding-top:16px;">
+      <p style="color:#1c274c;font-size:13px;font-weight:bold;margin:0 0 8px;">
+        Order consent &amp; policy acknowledgement
+      </p>
+      <p style="color:#8d93a5;font-size:12px;line-height:1.7;margin:0;">
+        By completing this purchase, the customer confirmed they read and agreed to:
+      </p>
+      <ul style="color:#8d93a5;font-size:12px;line-height:1.7;margin:8px 0 0;padding-left:18px;">
+        <li><strong>Sale &amp; purchase</strong> — the order terms in our
+          <a href="${SITE_URL}/terms" style="color:#7A2E35;">Terms of Use</a>.</li>
+        <li><strong>Refund</strong> — that <strong>all sales are final</strong> under our
+          <a href="${SITE_URL}/refund-policy" style="color:#7A2E35;">Refund Policy</a>.</li>
+        <li><strong>Shipment</strong> — delivery timelines and terms in our
+          <a href="${SITE_URL}/shipping-policy" style="color:#7A2E35;">Shipping Policy</a>.</li>
+      </ul>
+    </div>`;
+}
 
 function buildRows(items: OrderEmailItem[], currency: string): string {
   return items
@@ -80,11 +103,7 @@ function buildHtml({
       </tbody>
     </table>
 
-    <p style="color:#8d93a5;font-size:12px;margin-top:24px;line-height:1.6;border-top:1px solid #eee;padding-top:16px;">
-      By completing this purchase you confirmed that you read and agreed that
-      <strong>all sales are final</strong>, in accordance with our Refund Policy
-      and Terms of Use.
-    </p>
+    ${buildConsentBlock()}
 
     <p style="color:#8d93a5;font-size:12px;margin-top:16px;">
       Order reference: ${orderId}
@@ -145,7 +164,9 @@ function buildAdminHtml({
       </tbody>
     </table>
 
-    <p style="color:#8d93a5;font-size:12px;margin-top:24px;">
+    ${buildConsentBlock()}
+
+    <p style="color:#8d93a5;font-size:12px;margin-top:16px;">
       Order reference: ${orderId}
     </p>
   </div>`;

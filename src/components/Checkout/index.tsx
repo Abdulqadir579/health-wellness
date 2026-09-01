@@ -255,20 +255,11 @@ const Checkout = () => {
                     htmlFor="consent"
                     className="text-custom-sm text-dark-4 cursor-pointer"
                   >
-                    I understand and agree that{" "}
+                    I confirm this order and understand that{" "}
                     <span className="text-dark font-medium">
                       all sales are final
-                    </span>{" "}
-                    and I accept the{" "}
-                    <a
-                      href="/refund-policy"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue hover:underline"
-                    >
-                      Refund Policy
-                    </a>{" "}
-                    and{" "}
+                    </span>
+                    . I have read and accept the{" "}
                     <a
                       href="/terms"
                       target="_blank"
@@ -276,6 +267,24 @@ const Checkout = () => {
                       className="text-blue hover:underline"
                     >
                       Terms of Use
+                    </a>{" "}
+                    (sale &amp; purchase),{" "}
+                    <a
+                      href="/refund-policy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue hover:underline"
+                    >
+                      Refund Policy
+                    </a>
+                    , and{" "}
+                    <a
+                      href="/shipping-policy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue hover:underline"
+                    >
+                      Shipping Policy
                     </a>
                     .
                   </label>
