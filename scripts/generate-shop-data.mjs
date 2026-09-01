@@ -21,6 +21,9 @@ const OUT_DATA = path.join(PROJECT, "src/components/Shop/shopData.ts");
 
 const IMG_EXT = new Set([".jpg", ".jpeg", ".png", ".avif", ".webp"]);
 
+// Marketing/brand graphics that are not sellable products — skip these.
+const EXCLUDE = /poster|moodboard|collage|promotion|instagram|lumina|banner|logo|mockup/i;
+
 // AED prices per category (single clean price, no fake discount).
 const PRICE = {
   "Pashmina & Shawls": 6000,
@@ -36,24 +39,29 @@ const COLOR_TOKENS = new Set([
   "b","y","a",
 ]);
 
-function walk(dir, top = null) {
+function walk(dir, top = null, parent = null) {
   const out = [];
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     if (entry.name === ".DS_Store" || entry.name.startsWith(".")) continue;
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-      out.push(...walk(full, top ?? entry.name));
+      out.push(...walk(full, top ?? entry.name, entry.name));
     } else if (IMG_EXT.has(path.extname(entry.name).toLowerCase())) {
-      out.push({ full, top: top ?? "", name: entry.name });
+      if (EXCLUDE.test(entry.name)) continue;
+      out.push({ full, top: top ?? "", parent: parent ?? "", name: entry.name });
     }
   }
   return out;
 }
 
-function categorize(top, name) {
+function categorize(top, parent, name) {
   const t = top.toLowerCase();
+  const p = (parent || "").toLowerCase();
   const n = name.toLowerCase();
-  if (t.includes("mens cloths")) return "Men's Clothing";
+  // Men's: legacy top-level "mens cloths" OR the new "ali express men" subfolder.
+  // (Filename detection is unreliable because "women's" contains "men's".)
+  if (t.includes("mens cloths") || p === "ali express men")
+    return "Men's Clothing";
   if (/bikini|swimsuit|swimwear|thong|bandeau|brazilian|micro bikini|triangle swim/.test(n))
     return "Swimwear";
   if (/dress|evening|prom|mermaid|kaftan|abaya|jalabiya|gown|peplum|vestidos|robe/.test(n))
@@ -121,7 +129,7 @@ function slugify(s) {
 const files = walk(SRC);
 const groups = new Map(); // key -> { category, base, files: [] }
 for (const f of files) {
-  const category = categorize(f.top, f.name);
+  const category = categorize(f.top, f.parent, f.name);
   const base = normalizeBase(f.name);
   const key = category + "||" + base;
   if (!groups.has(key)) groups.set(key, { category, base, files: [] });
