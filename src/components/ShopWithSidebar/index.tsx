@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 import Breadcrumb from "../Common/Breadcrumb";
 import CustomSelect from "./CustomSelect";
 import CategoryDropdown from "./CategoryDropdown";
@@ -49,15 +50,16 @@ const ShopWithSidebar = () => {
     );
   };
 
-  // Read initial category / search from the URL (category tile or header
-  // search). Client-only to avoid Suspense requirements around useSearchParams.
+  // Sync category / search from the URL (category tile or header search).
+  // Depending on searchParams keeps the list in sync even when the query
+  // changes while we are already on the shop page.
+  const searchParams = useSearchParams();
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const cat = params.get("category");
-    const q = params.get("search");
-    if (cat) setSelectedCategories([cat]);
-    if (q) setSearchTerm(q);
-  }, []);
+    const cat = searchParams.get("category");
+    const q = searchParams.get("search");
+    setSelectedCategories(cat ? [cat] : []);
+    setSearchTerm(q ?? "");
+  }, [searchParams]);
 
   const filteredProducts = useMemo(() => {
     const term = searchTerm.trim().toLowerCase();

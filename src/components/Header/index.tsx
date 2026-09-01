@@ -19,15 +19,25 @@ const Header = () => {
   const [stickyMenu, setStickyMenu] = useState(false);
   const { openCartModal } = useCartModalContext();
 
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const goToShop = (category: string, query: string) => {
     const params = new URLSearchParams();
-    if (searchQuery.trim()) params.set("search", searchQuery.trim());
-    if (selectedCategory && selectedCategory !== "All Categories") {
-      params.set("category", selectedCategory);
+    if (query.trim()) params.set("search", query.trim());
+    if (category && category !== "All Categories") {
+      params.set("category", category);
     }
     const qs = params.toString();
     router.push(`/shop-with-sidebar${qs ? `?${qs}` : ""}`);
+  };
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    goToShop(selectedCategory, searchQuery);
+  };
+
+  // Selecting a category from the dropdown jumps straight to the filtered shop.
+  const handleCategoryChange = (option: { label: string; value: string }) => {
+    setSelectedCategory(option.label);
+    goToShop(option.label, searchQuery);
   };
 
   const product = useAppSelector((state) => state.cartReducer.items);
@@ -92,7 +102,7 @@ const Header = () => {
                 <div className="flex items-center">
                   <CustomSelect
                     options={options}
-                    onChange={(option) => setSelectedCategory(option.label)}
+                    onChange={handleCategoryChange}
                   />
 
                   <div className="relative max-w-[333px] sm:min-w-[333px] w-full">
