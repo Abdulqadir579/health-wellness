@@ -29,24 +29,24 @@ const HeroCarousal = () => {
           <div className="max-w-[394px] py-10 sm:py-15 lg:py-24.5 pl-4 sm:pl-7.5 lg:pl-12.5">
             <div className="flex items-center gap-4 mb-7.5 sm:mb-10">
               <span className="block font-serif font-semibold text-heading-4 sm:text-heading-3 text-blue">
-                Heritage
+                Signature
               </span>
               <span className="block text-dark text-sm sm:text-custom-1 sm:leading-[24px]">
-                Handwoven
+                Modest
                 <br />
-                Collection
+                Elegance
               </span>
             </div>
 
             <h1 className="font-serif font-semibold text-dark text-xl sm:text-3xl mb-3">
               <Link href="/shop-with-sidebar">
-                Kashmiri Pashmina &amp; Cashmere Shawls
+                Abayas, Kaftans &amp; Modest Wear
               </Link>
             </h1>
 
             <p>
-              Hand-embroidered pashmina and cashmere wraps, woven by artisans and
-              chosen for timeless elegance.
+              Flowing abayas and kaftans in premium fabrics, tailored for
+              graceful, everyday elegance.
             </p>
 
             <Link
@@ -59,11 +59,11 @@ const HeroCarousal = () => {
 
           <div>
             <Image
-              src="/images/products/gsp-women-handwoven-pashmina-shawl-1.jpg"
-              alt="handwoven pashmina shawl"
-              width={351}
-              height={358}
-              className="rounded-lg object-cover"
+              src="/images/hero/gs600-model.png"
+              alt="Global Supply 600 abaya"
+              width={300}
+              height={460}
+              className="rounded-lg object-cover object-top h-[460px] w-[300px]"
             />
           </div>
         </div>
