@@ -26,72 +26,19 @@ const Hero = () => {
           </Reveal>
 
           <Reveal className="xl:max-w-[393px] w-full" delay={0.15}>
-            <div className="flex flex-col sm:flex-row xl:flex-col gap-5">
-              <div className="w-full relative rounded-[10px] bg-white p-4 sm:p-7.5">
-                <div className="flex items-center gap-14">
-                  <div>
-                    <h2 className="max-w-[153px] font-serif font-semibold text-dark text-xl mb-20">
-                      <Link href="/shop-with-sidebar">
-                        Pashmina &amp; Shawls
-                      </Link>
-                    </h2>
-
-                    <div>
-                      <p className="font-medium text-dark-4 text-custom-sm mb-1.5">
-                        heritage collection
-                      </p>
-                      <span className="flex items-center gap-3">
-                        <span className="font-medium text-heading-5 text-blue">
-                          AED 100
-                        </span>
-                      </span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <Image
-                      src="/images/products/gsp-crimson-court-1.jpg"
-                      alt="pashmina shawl"
-                      width={123}
-                      height={161}
-                      className="rounded-md object-cover h-[161px] w-[123px]"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="w-full relative rounded-[10px] bg-white p-4 sm:p-7.5">
-                <div className="flex items-center gap-14">
-                  <div>
-                    <h2 className="max-w-[153px] font-serif font-semibold text-dark text-xl mb-20">
-                      <Link href="/shop-with-sidebar">
-                        Evening Dresses &amp; Abayas
-                      </Link>
-                    </h2>
-
-                    <div>
-                      <p className="font-medium text-dark-4 text-custom-sm mb-1.5">
-                        new arrivals
-                      </p>
-                      <span className="flex items-center gap-3">
-                        <span className="font-medium text-heading-5 text-blue">
-                          AED 100
-                        </span>
-                      </span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <Image
-                      src="/images/products/gsp-arabic-evening-dress-1.avif"
-                      alt="evening dress"
-                      width={123}
-                      height={161}
-                      className="rounded-md object-cover h-[161px] w-[123px]"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Link
+              href="/shop-with-sidebar"
+              className="group flex items-center justify-center w-full h-full rounded-[10px] bg-white overflow-hidden"
+            >
+              <Image
+                src="/images/hero/gs600-model.png"
+                alt="Global Supply 600 — abaya, dress and shawl collection"
+                width={576}
+                height={1024}
+                priority
+                className="max-h-full w-full object-cover ease-out duration-200 group-hover:scale-105"
+              />
+            </Link>
           </Reveal>
         </div>
       </div>
