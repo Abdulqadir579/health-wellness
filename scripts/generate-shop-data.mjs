@@ -21,14 +21,13 @@ const OUT_DATA = path.join(PROJECT, "src/components/Shop/shopData.ts");
 
 const IMG_EXT = new Set([".jpg", ".jpeg", ".png", ".avif", ".webp"]);
 
-// Placeholder AED prices per category (edit later / replace with real list).
-// Currently a flat 100 across the board per request.
+// AED prices per category (single clean price, no fake discount).
 const PRICE = {
-  "Pashmina & Shawls": 100,
-  "Women's Dresses & Abayas": 100,
-  "Women's Tops & Sets": 100,
-  Swimwear: 100,
-  "Men's Clothing": 100,
+  "Pashmina & Shawls": 6000,
+  "Women's Dresses & Abayas": 1000,
+  "Women's Tops & Sets": 4000,
+  Swimwear: 1500,
+  "Men's Clothing": 2000,
 };
 
 const COLOR_TOKENS = new Set([

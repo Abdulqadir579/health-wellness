@@ -112,19 +112,17 @@ export async function POST(req: Request) {
         status: "paid",
       });
 
-      if (to) {
-        await sendOrderConfirmationEmail({
-          to,
-          orderId: paymentIntent.id,
-          items: toEmailItems(orderItems),
-          amountTotal,
-          currency: paymentIntent.currency,
-        });
-      } else {
-        console.warn(
-          `No email on ${paymentIntent.id} — skipping confirmation email`
-        );
-      }
+      // Sends the customer their confirmation (if we have their email) and a
+      // copy to the merchant inbox (ORDER_NOTIFICATION_EMAIL) for records.
+      await sendOrderConfirmationEmail({
+        to,
+        orderId: paymentIntent.id,
+        items: toEmailItems(orderItems),
+        amountTotal,
+        currency: paymentIntent.currency,
+        customerName: billing.name,
+        customerPhone: billing.phone,
+      });
       break;
     }
     case "payment_intent.payment_failed": {
