@@ -1985,8 +1985,8 @@ const shopData: Product[] = [
   {
     title: "Jogging Training Shorts Men's Pants",
     reviews: 20,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 100,
+    discountedPrice: 100,
     id: 120,
     category: "Men's Clothing",
     imgs: {
