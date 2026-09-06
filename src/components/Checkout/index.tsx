@@ -82,7 +82,7 @@ const Checkout = () => {
 
     if (!consentChecked) {
       setFormError(
-        "Please confirm you agree that all sales are final before placing your order."
+        "Please confirm you have read and accept our policies before placing your order."
       );
       return;
     }
@@ -234,7 +234,7 @@ const Checkout = () => {
                   consentGiven={consentChecked}
                   onConsentError={() =>
                     setFormError(
-                      "Please confirm you agree that all sales are final before paying."
+                      "Please confirm you accept our policies before paying."
                     )
                   }
                 />
@@ -255,11 +255,7 @@ const Checkout = () => {
                     htmlFor="consent"
                     className="text-custom-sm text-dark-4 cursor-pointer"
                   >
-                    I confirm this order and understand that{" "}
-                    <span className="text-dark font-medium">
-                      all sales are final
-                    </span>
-                    . I have read and accept the{" "}
+                    I confirm this order and have read and accept the{" "}
                     <a
                       href="/terms"
                       target="_blank"
@@ -268,7 +264,7 @@ const Checkout = () => {
                     >
                       Terms of Use
                     </a>{" "}
-                    (sale &amp; purchase),{" "}
+                    (sale &amp; purchase), our{" "}
                     <a
                       href="/refund-policy"
                       target="_blank"
@@ -276,8 +272,8 @@ const Checkout = () => {
                       className="text-blue hover:underline"
                     >
                       Refund Policy
-                    </a>
-                    , and{" "}
+                    </a>{" "}
+                    (7-day returns), and{" "}
                     <a
                       href="/shipping-policy"
                       target="_blank"

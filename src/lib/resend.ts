@@ -46,11 +46,37 @@ function buildConsentBlock(): string {
       <ul style="color:#8d93a5;font-size:12px;line-height:1.7;margin:8px 0 0;padding-left:18px;">
         <li><strong>Sale &amp; purchase</strong> — the order terms in our
           <a href="${SITE_URL}/terms" style="color:#7A2E35;">Terms of Use</a>.</li>
-        <li><strong>Refund</strong> — that <strong>all sales are final</strong> under our
+        <li><strong>Refund</strong> — returns accepted within 7 days under our
           <a href="${SITE_URL}/refund-policy" style="color:#7A2E35;">Refund Policy</a>.</li>
         <li><strong>Shipment</strong> — delivery timelines and terms in our
           <a href="${SITE_URL}/shipping-policy" style="color:#7A2E35;">Shipping Policy</a>.</li>
       </ul>
+    </div>`;
+}
+
+function buildRefundSummary(): string {
+  return `
+    <div style="margin-top:24px;border:1px solid #eee;border-radius:8px;padding:16px;">
+      <p style="color:#1c274c;font-size:13px;font-weight:bold;margin:0 0 8px;">
+        Refund &amp; Returns Policy
+      </p>
+      <ul style="color:#8d93a5;font-size:12px;line-height:1.7;margin:0;padding-left:18px;">
+        <li>Return requests are accepted within <strong>7 days</strong> of delivery.
+          Items must be unused, unworn, and in original condition with tags and
+          packaging intact.</li>
+        <li>For hygiene reasons, swimwear and intimate items are only returnable if
+          unworn with hygiene seals intact.</li>
+        <li>To start a return, email
+          <a href="mailto:globalsupply600@gmail.com" style="color:#7A2E35;">globalsupply600@gmail.com</a>
+          with your order number.</li>
+        <li>Approved refunds are issued to your original payment method within
+          5–10 business days.</li>
+      </ul>
+      <p style="margin:10px 0 0;">
+        <a href="${SITE_URL}/refund-policy" style="color:#7A2E35;font-size:12px;">
+          Read the full Refund Policy →
+        </a>
+      </p>
     </div>`;
 }
 
@@ -102,6 +128,8 @@ function buildHtml({
         </tr>
       </tbody>
     </table>
+
+    ${buildRefundSummary()}
 
     ${buildConsentBlock()}
 
@@ -163,6 +191,8 @@ function buildAdminHtml({
         </tr>
       </tbody>
     </table>
+
+    ${buildRefundSummary()}
 
     ${buildConsentBlock()}
 

@@ -65,8 +65,8 @@ const StripePayment = forwardRef<StripePaymentHandle, StripePaymentProps>(
     useImperativeHandle(ref, () => ({ confirm }));
 
     // Gate the wallet sheet (Apple Pay / Google Pay / Link): if the customer
-    // hasn't ticked the "all sales are final" consent, we don't call
-    // event.resolve(), so the wallet never opens.
+    // hasn't ticked the policy consent, we don't call event.resolve(), so the
+    // wallet never opens.
     const handleExpressClick = (
       event: StripeExpressCheckoutElementClickEvent
     ) => {
