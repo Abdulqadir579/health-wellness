@@ -24,13 +24,23 @@ const IMG_EXT = new Set([".jpg", ".jpeg", ".png", ".avif", ".webp"]);
 // Marketing/brand graphics that are not sellable products — skip these.
 const EXCLUDE = /poster|moodboard|collage|promotion|instagram|lumina|banner|logo|mockup/i;
 
-// AED prices per category (single clean price, no fake discount).
-const PRICE = {
-  "Pashmina & Shawls": 6000,
-  "Women's Dresses & Abayas": 1000,
-  "Women's Tops & Sets": 4000,
-  Swimwear: 1500,
-  "Men's Clothing": 2000,
+// AED price pools per category — a random value is picked per product so
+// prices vary within a category (single clean price, no fake discount).
+const PRICE_POOLS = {
+  "Pashmina & Shawls": [2000, 3000, 4000, 5000, 6000, 7000, 8000],
+  "Women's Dresses & Abayas": [
+    750, 850, 950, 1100, 1250, 1450, 1650, 1850, 2100, 2400,
+  ],
+  "Women's Tops & Sets": [300, 450, 600, 750, 900, 1200, 1500, 1800, 2200],
+  Swimwear: [1000, 1200, 1400, 1600, 1800, 2000],
+  "Men's Clothing": [
+    150, 250, 350, 450, 550, 650, 750, 850, 950, 1000, 1200, 1500,
+  ],
+};
+
+const priceFor = (category) => {
+  const pool = PRICE_POOLS[category] || [199];
+  return pool[Math.floor(Math.random() * pool.length)];
 };
 
 const COLOR_TOKENS = new Set([
@@ -171,7 +181,7 @@ for (const { category, base, files: gfiles } of groups.values()) {
     imgPaths.push(`/images/products/${outName}`);
   });
 
-  const price = PRICE[category] ?? 199;
+  const price = priceFor(category);
   counts[category] = (counts[category] || 0) + 1;
 
   products.push({

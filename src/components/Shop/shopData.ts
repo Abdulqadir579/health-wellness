@@ -5,8 +5,8 @@ const shopData: Product[] = [
   {
     title: "Dress Long Robe Abaya",
     reviews: 12,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1450,
+    discountedPrice: 1450,
     id: 1,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -23,8 +23,8 @@ const shopData: Product[] = [
   {
     title: "Jancoco Popular Knitted Sweater Set Loose Women",
     reviews: 19,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 300,
+    discountedPrice: 300,
     id: 2,
     category: "Women's Tops & Sets",
     imgs: {
@@ -41,8 +41,8 @@ const shopData: Product[] = [
   {
     title: "Japanese Style Luxury Cashmere And Wool Fabric",
     reviews: 26,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 2000,
+    discountedPrice: 2000,
     id: 3,
     category: "Pashmina & Shawls",
     imgs: {
@@ -59,8 +59,8 @@ const shopData: Product[] = [
   {
     title: "Long Shawl Wrap Scarf",
     reviews: 8,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 8000,
+    discountedPrice: 8000,
     id: 4,
     category: "Pashmina & Shawls",
     imgs: {
@@ -77,8 +77,8 @@ const shopData: Product[] = [
   {
     title: "Loose Outfits Spring Summer Streetwear Long Sleeve",
     reviews: 15,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 750,
+    discountedPrice: 750,
     id: 5,
     category: "Women's Tops & Sets",
     imgs: {
@@ -103,8 +103,8 @@ const shopData: Product[] = [
   {
     title: "Polyester Scarf",
     reviews: 22,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 4000,
+    discountedPrice: 4000,
     id: 6,
     category: "Pashmina & Shawls",
     imgs: {
@@ -121,8 +121,8 @@ const shopData: Product[] = [
   {
     title: "Sleeveless V-Neck Maxi Elegant Tiered Ruffle Stripe Casual Daily Dress",
     reviews: 29,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 2400,
+    discountedPrice: 2400,
     id: 7,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -139,8 +139,8 @@ const shopData: Product[] = [
   {
     title: "Short Scarf For Women",
     reviews: 11,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 5000,
+    discountedPrice: 5000,
     id: 8,
     category: "Pashmina & Shawls",
     imgs: {
@@ -155,8 +155,8 @@ const shopData: Product[] = [
   {
     title: "Scarf",
     reviews: 18,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 5000,
+    discountedPrice: 5000,
     id: 9,
     category: "Pashmina & Shawls",
     imgs: {
@@ -173,8 +173,8 @@ const shopData: Product[] = [
   {
     title: "2026 Sexy Women's Bikini,",
     reviews: 25,
-    price: 1500,
-    discountedPrice: 1500,
+    price: 1200,
+    discountedPrice: 1200,
     id: 10,
     category: "Swimwear",
     imgs: {
@@ -189,8 +189,8 @@ const shopData: Product[] = [
   {
     title: "A-line Evening Dress",
     reviews: 7,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 950,
+    discountedPrice: 950,
     id: 11,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -205,8 +205,8 @@ const shopData: Product[] = [
   {
     title: "Arabic Evening Dress",
     reviews: 14,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1100,
+    discountedPrice: 1100,
     id: 12,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -221,8 +221,8 @@ const shopData: Product[] = [
   {
     title: "Befree Summer Long Vintage",
     reviews: 21,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 750,
+    discountedPrice: 750,
     id: 13,
     category: "Women's Tops & Sets",
     imgs: {
@@ -237,8 +237,8 @@ const shopData: Product[] = [
   {
     title: "Beige Solid Blouse",
     reviews: 28,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 1800,
+    discountedPrice: 1800,
     id: 14,
     category: "Women's Tops & Sets",
     imgs: {
@@ -255,8 +255,8 @@ const shopData: Product[] = [
   {
     title: "Blue Half Slives",
     reviews: 10,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 300,
+    discountedPrice: 300,
     id: 15,
     category: "Women's Tops & Sets",
     imgs: {
@@ -271,8 +271,8 @@ const shopData: Product[] = [
   {
     title: "Classic Printed Dresses",
     reviews: 17,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 2400,
+    discountedPrice: 2400,
     id: 16,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -287,8 +287,8 @@ const shopData: Product[] = [
   {
     title: "Elegant Women's Satin",
     reviews: 24,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 1500,
+    discountedPrice: 1500,
     id: 17,
     category: "Women's Tops & Sets",
     imgs: {
@@ -303,8 +303,8 @@ const shopData: Product[] = [
   {
     title: "Floral Print Swimsuit With Padded Bra And Brazilian Bottom",
     reviews: 6,
-    price: 1500,
-    discountedPrice: 1500,
+    price: 1200,
+    discountedPrice: 1200,
     id: 18,
     category: "Swimwear",
     imgs: {
@@ -319,8 +319,8 @@ const shopData: Product[] = [
   {
     title: "Gold Prom Dress",
     reviews: 13,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 2100,
+    discountedPrice: 2100,
     id: 19,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -335,8 +335,8 @@ const shopData: Product[] = [
   {
     title: "Islamic Jalabiya, Turkish Kaftan",
     reviews: 20,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 2100,
+    discountedPrice: 2100,
     id: 20,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -351,8 +351,8 @@ const shopData: Product[] = [
   {
     title: "Long Evening Dress",
     reviews: 27,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 2100,
+    discountedPrice: 2100,
     id: 21,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -367,8 +367,8 @@ const shopData: Product[] = [
   {
     title: "Luxefay",
     reviews: 9,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 900,
+    discountedPrice: 900,
     id: 22,
     category: "Women's Tops & Sets",
     imgs: {
@@ -383,8 +383,8 @@ const shopData: Product[] = [
   {
     title: "Luxurious A-line Evening Dress",
     reviews: 16,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1450,
+    discountedPrice: 1450,
     id: 23,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -399,8 +399,8 @@ const shopData: Product[] = [
   {
     title: "Luxurious",
     reviews: 23,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 900,
+    discountedPrice: 900,
     id: 24,
     category: "Women's Tops & Sets",
     imgs: {
@@ -415,8 +415,8 @@ const shopData: Product[] = [
   {
     title: "Luxury Prom Dress",
     reviews: 5,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1450,
+    discountedPrice: 1450,
     id: 25,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -431,8 +431,8 @@ const shopData: Product[] = [
   {
     title: "Mirage's Luxurious Mermaid",
     reviews: 12,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1100,
+    discountedPrice: 1100,
     id: 26,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -447,8 +447,8 @@ const shopData: Product[] = [
   {
     title: "Moroccan Arabic Kaftan",
     reviews: 19,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 2100,
+    discountedPrice: 2100,
     id: 27,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -463,8 +463,8 @@ const shopData: Product[] = [
   {
     title: "Evening Dress",
     reviews: 26,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1650,
+    discountedPrice: 1650,
     id: 28,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -479,8 +479,8 @@ const shopData: Product[] = [
   {
     title: "Nibber Women's Prom Dress",
     reviews: 8,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1650,
+    discountedPrice: 1650,
     id: 29,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -497,8 +497,8 @@ const shopData: Product[] = [
   {
     title: "Party Dress",
     reviews: 15,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1100,
+    discountedPrice: 1100,
     id: 30,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -513,8 +513,8 @@ const shopData: Product[] = [
   {
     title: "Roses Sequined",
     reviews: 22,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 900,
+    discountedPrice: 900,
     id: 31,
     category: "Women's Tops & Sets",
     imgs: {
@@ -529,8 +529,8 @@ const shopData: Product[] = [
   {
     title: "Roseinthebox Strapless",
     reviews: 29,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 2200,
+    discountedPrice: 2200,
     id: 32,
     category: "Women's Tops & Sets",
     imgs: {
@@ -545,8 +545,8 @@ const shopData: Product[] = [
   {
     title: "Swimwear Set",
     reviews: 11,
-    price: 1500,
-    discountedPrice: 1500,
+    price: 2000,
+    discountedPrice: 2000,
     id: 33,
     category: "Swimwear",
     imgs: {
@@ -565,8 +565,8 @@ const shopData: Product[] = [
   {
     title: "Sexy Brazilian Bikini Set",
     reviews: 18,
-    price: 1500,
-    discountedPrice: 1500,
+    price: 1200,
+    discountedPrice: 1200,
     id: 34,
     category: "Swimwear",
     imgs: {
@@ -583,8 +583,8 @@ const shopData: Product[] = [
   {
     title: "Sexy Triangle Swimsuit For Women",
     reviews: 25,
-    price: 1500,
-    discountedPrice: 1500,
+    price: 1000,
+    discountedPrice: 1000,
     id: 35,
     category: "Swimwear",
     imgs: {
@@ -601,8 +601,8 @@ const shopData: Product[] = [
   {
     title: "Sexy Strapless Short",
     reviews: 7,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 1200,
+    discountedPrice: 1200,
     id: 36,
     category: "Women's Tops & Sets",
     imgs: {
@@ -617,8 +617,8 @@ const shopData: Product[] = [
   {
     title: "Sexy Women's Triangle Halter Bikini",
     reviews: 14,
-    price: 1500,
-    discountedPrice: 1500,
+    price: 1000,
+    discountedPrice: 1000,
     id: 37,
     category: "Swimwear",
     imgs: {
@@ -635,8 +635,8 @@ const shopData: Product[] = [
   {
     title: "Sky Blue Starfish Embellished Thong",
     reviews: 21,
-    price: 1500,
-    discountedPrice: 1500,
+    price: 1400,
+    discountedPrice: 1400,
     id: 38,
     category: "Swimwear",
     imgs: {
@@ -651,8 +651,8 @@ const shopData: Product[] = [
   {
     title: "Women Half Slives",
     reviews: 28,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 1500,
+    discountedPrice: 1500,
     id: 39,
     category: "Women's Tops & Sets",
     imgs: {
@@ -667,8 +667,8 @@ const shopData: Product[] = [
   {
     title: "Colored Mermaid",
     reviews: 10,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 950,
+    discountedPrice: 950,
     id: 40,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -685,8 +685,8 @@ const shopData: Product[] = [
   {
     title: "Custom-made Green Emrald",
     reviews: 17,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 1200,
+    discountedPrice: 1200,
     id: 41,
     category: "Women's Tops & Sets",
     imgs: {
@@ -701,8 +701,8 @@ const shopData: Product[] = [
   {
     title: "Dresses With a Classic",
     reviews: 24,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1850,
+    discountedPrice: 1850,
     id: 42,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -717,8 +717,8 @@ const shopData: Product[] = [
   {
     title: "Embellished With Beads",
     reviews: 6,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 1500,
+    discountedPrice: 1500,
     id: 43,
     category: "Women's Tops & Sets",
     imgs: {
@@ -733,8 +733,8 @@ const shopData: Product[] = [
   {
     title: "Formal Chiffon Mermaid",
     reviews: 13,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1100,
+    discountedPrice: 1100,
     id: 44,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -749,8 +749,8 @@ const shopData: Product[] = [
   {
     title: "Green Halter-style",
     reviews: 20,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 450,
+    discountedPrice: 450,
     id: 45,
     category: "Women's Tops & Sets",
     imgs: {
@@ -765,8 +765,8 @@ const shopData: Product[] = [
   {
     title: "Hooded Abaya With Special Work",
     reviews: 27,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 850,
+    discountedPrice: 850,
     id: 46,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -781,8 +781,8 @@ const shopData: Product[] = [
   {
     title: "Party Abaya",
     reviews: 9,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1250,
+    discountedPrice: 1250,
     id: 47,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -797,8 +797,8 @@ const shopData: Product[] = [
   {
     title: "Pearl Polka Dot Print",
     reviews: 16,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 1500,
+    discountedPrice: 1500,
     id: 48,
     category: "Women's Tops & Sets",
     imgs: {
@@ -817,8 +817,8 @@ const shopData: Product[] = [
   {
     title: "Shimmering Saudi Arabian Evening Dress",
     reviews: 23,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 2100,
+    discountedPrice: 2100,
     id: 49,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -833,8 +833,8 @@ const shopData: Product[] = [
   {
     title: "Slim-fit Summer Party Dress",
     reviews: 5,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 850,
+    discountedPrice: 850,
     id: 50,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -849,8 +849,8 @@ const shopData: Product[] = [
   {
     title: "Strapless Satin",
     reviews: 12,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 900,
+    discountedPrice: 900,
     id: 51,
     category: "Women's Tops & Sets",
     imgs: {
@@ -865,8 +865,8 @@ const shopData: Product[] = [
   {
     title: "Summer Black Peplum",
     reviews: 19,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1100,
+    discountedPrice: 1100,
     id: 52,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -881,8 +881,8 @@ const shopData: Product[] = [
   {
     title: "Summer Peplum",
     reviews: 26,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1250,
+    discountedPrice: 1250,
     id: 53,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -897,8 +897,8 @@ const shopData: Product[] = [
   {
     title: "Two-piece Micro Bikini Swimsuit",
     reviews: 8,
-    price: 1500,
-    discountedPrice: 1500,
+    price: 1200,
+    discountedPrice: 1200,
     id: 54,
     category: "Swimwear",
     imgs: {
@@ -915,8 +915,8 @@ const shopData: Product[] = [
   {
     title: "Vestidos Summer Dress",
     reviews: 15,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 2100,
+    discountedPrice: 2100,
     id: 55,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -931,8 +931,8 @@ const shopData: Product[] = [
   {
     title: "White Mermaid-style",
     reviews: 22,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 750,
+    discountedPrice: 750,
     id: 56,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -947,8 +947,8 @@ const shopData: Product[] = [
   {
     title: "Women's Small Swimsuit 2022",
     reviews: 29,
-    price: 1500,
-    discountedPrice: 1500,
+    price: 1600,
+    discountedPrice: 1600,
     id: 57,
     category: "Swimwear",
     imgs: {
@@ -963,8 +963,8 @@ const shopData: Product[] = [
   {
     title: "Women's Small Swimsuit",
     reviews: 11,
-    price: 1500,
-    discountedPrice: 1500,
+    price: 1000,
+    discountedPrice: 1000,
     id: 58,
     category: "Swimwear",
     imgs: {
@@ -981,8 +981,8 @@ const shopData: Product[] = [
   {
     title: "Women's Swimwear Fashion 2026",
     reviews: 18,
-    price: 1500,
-    discountedPrice: 1500,
+    price: 1600,
+    discountedPrice: 1600,
     id: 59,
     category: "Swimwear",
     imgs: {
@@ -1003,8 +1003,8 @@ const shopData: Product[] = [
   {
     title: "Achillea Womens Bp-025 Pashmina Shawl",
     reviews: 25,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 2000,
+    discountedPrice: 2000,
     id: 60,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1019,8 +1019,8 @@ const shopData: Product[] = [
   {
     title: "Cashmere Fringe Scarf",
     reviews: 7,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 2000,
+    discountedPrice: 2000,
     id: 61,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1035,8 +1035,8 @@ const shopData: Product[] = [
   {
     title: "Cashmere Womens Shawl Wrap",
     reviews: 14,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 8000,
+    discountedPrice: 8000,
     id: 62,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1051,8 +1051,8 @@ const shopData: Product[] = [
   {
     title: "Embroidery Shawl, Green Shawl",
     reviews: 21,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 2000,
+    discountedPrice: 2000,
     id: 63,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1067,8 +1067,8 @@ const shopData: Product[] = [
   {
     title: "Fine Wool Sozni Hand Embroidered Shawl, Stole",
     reviews: 28,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 4000,
+    discountedPrice: 4000,
     id: 64,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1083,8 +1083,8 @@ const shopData: Product[] = [
   {
     title: "Hdhdeueh Women's Solid Cashmere Scarf Knitted Long Shawl For Fall Winter",
     reviews: 10,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 4000,
+    discountedPrice: 4000,
     id: 65,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1115,8 +1115,8 @@ const shopData: Product[] = [
   {
     title: "Pashmina Shawls Wraps Scarf",
     reviews: 24,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 2000,
+    discountedPrice: 2000,
     id: 67,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1131,8 +1131,8 @@ const shopData: Product[] = [
   {
     title: "Scarf Cashmere",
     reviews: 6,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 3000,
+    discountedPrice: 3000,
     id: 68,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1147,8 +1147,8 @@ const shopData: Product[] = [
   {
     title: "Scarf Mulberry Silk Hand Embroidery Shawls",
     reviews: 13,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 4000,
+    discountedPrice: 4000,
     id: 69,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1163,8 +1163,8 @@ const shopData: Product[] = [
   {
     title: "Scarf For Women American Mulberry Silk Scarf",
     reviews: 20,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 2000,
+    discountedPrice: 2000,
     id: 70,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1179,8 +1179,8 @@ const shopData: Product[] = [
   {
     title: "Scarf For Women Spring Summer Winter",
     reviews: 27,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 2000,
+    discountedPrice: 2000,
     id: 71,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1195,8 +1195,8 @@ const shopData: Product[] = [
   {
     title: "Shawl Wrap Pashmina Scarf Kashmiri Hand Made",
     reviews: 9,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 5000,
+    discountedPrice: 5000,
     id: 72,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1211,8 +1211,8 @@ const shopData: Product[] = [
   {
     title: "Shawl Wrap Pashmina Scarf",
     reviews: 16,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 2000,
+    discountedPrice: 2000,
     id: 73,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1227,8 +1227,8 @@ const shopData: Product[] = [
   {
     title: "Shawls Thick Warm",
     reviews: 23,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 2000,
+    discountedPrice: 2000,
     id: 74,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1259,8 +1259,8 @@ const shopData: Product[] = [
   {
     title: "Women Double-deck Mulberry Silk Hand Embroidery Flower Pattern",
     reviews: 12,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 2000,
+    discountedPrice: 2000,
     id: 76,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1275,8 +1275,8 @@ const shopData: Product[] = [
   {
     title: "Women Handwoven Pashmina Shawl",
     reviews: 19,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 4000,
+    discountedPrice: 4000,
     id: 77,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1291,8 +1291,8 @@ const shopData: Product[] = [
   {
     title: "Women's Evening Shawl Wrap Sheer Chiffon",
     reviews: 26,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 2100,
+    discountedPrice: 2100,
     id: 78,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -1307,8 +1307,8 @@ const shopData: Product[] = [
   {
     title: "Women's Poncho Scarf",
     reviews: 8,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 3000,
+    discountedPrice: 3000,
     id: 79,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1323,8 +1323,8 @@ const shopData: Product[] = [
   {
     title: "Women's Winter Shawl Women's",
     reviews: 15,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 5000,
+    discountedPrice: 5000,
     id: 80,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1355,8 +1355,8 @@ const shopData: Product[] = [
   {
     title: "Wool Wrap For Women",
     reviews: 29,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 2000,
+    discountedPrice: 2000,
     id: 82,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1371,8 +1371,8 @@ const shopData: Product[] = [
   {
     title: "Wv-405 Shawl",
     reviews: 11,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 2000,
+    discountedPrice: 2000,
     id: 83,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1419,8 +1419,8 @@ const shopData: Product[] = [
   {
     title: "Mexa",
     reviews: 7,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 2000,
+    discountedPrice: 2000,
     id: 86,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1451,8 +1451,8 @@ const shopData: Product[] = [
   {
     title: "Womens Reversible Cashmere Shawl Duster",
     reviews: 21,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 2000,
+    discountedPrice: 2000,
     id: 88,
     category: "Pashmina & Shawls",
     imgs: {
@@ -1467,8 +1467,8 @@ const shopData: Product[] = [
   {
     title: "Cathy's Custom-designed Formal",
     reviews: 28,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 450,
+    discountedPrice: 450,
     id: 89,
     category: "Women's Tops & Sets",
     imgs: {
@@ -1483,8 +1483,8 @@ const shopData: Product[] = [
   {
     title: "Elegant Summer Dress For Women",
     reviews: 10,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 2100,
+    discountedPrice: 2100,
     id: 90,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -1499,8 +1499,8 @@ const shopData: Product[] = [
   {
     title: "Elegant Women's Satin Dress",
     reviews: 17,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1450,
+    discountedPrice: 1450,
     id: 91,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -1517,8 +1517,8 @@ const shopData: Product[] = [
   {
     title: "Evening Dresses Green Crystal Hand",
     reviews: 24,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 750,
+    discountedPrice: 750,
     id: 92,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -1533,8 +1533,8 @@ const shopData: Product[] = [
   {
     title: "French Style For Spring And Summer",
     reviews: 6,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 1800,
+    discountedPrice: 1800,
     id: 93,
     category: "Women's Tops & Sets",
     imgs: {
@@ -1551,8 +1551,8 @@ const shopData: Product[] = [
   {
     title: "Luxurious Beaded Evening Dresses",
     reviews: 13,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1450,
+    discountedPrice: 1450,
     id: 94,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -1567,8 +1567,8 @@ const shopData: Product[] = [
   {
     title: "Luxury Mermaid Evening Gown With Blue Crystal",
     reviews: 20,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 2100,
+    discountedPrice: 2100,
     id: 95,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -1583,8 +1583,8 @@ const shopData: Product[] = [
   {
     title: "Matching Floral Dresses",
     reviews: 27,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 2100,
+    discountedPrice: 2100,
     id: 96,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -1601,8 +1601,8 @@ const shopData: Product[] = [
   {
     title: "Retro Satin Dress With Pearl Straps",
     reviews: 9,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 950,
+    discountedPrice: 950,
     id: 97,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -1619,8 +1619,8 @@ const shopData: Product[] = [
   {
     title: "Sparkly Luxury Evening Dress",
     reviews: 16,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 850,
+    discountedPrice: 850,
     id: 98,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -1635,8 +1635,8 @@ const shopData: Product[] = [
   {
     title: "Summer Beach Dress For Mother And Daughter Multi Colour",
     reviews: 23,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1850,
+    discountedPrice: 1850,
     id: 99,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -1651,8 +1651,8 @@ const shopData: Product[] = [
   {
     title: "Summer Beach Dress For Mother And Daughter",
     reviews: 5,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 850,
+    discountedPrice: 850,
     id: 100,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -1667,8 +1667,8 @@ const shopData: Product[] = [
   {
     title: "Summer Beach Dress For Mother And Daughterpink",
     reviews: 12,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1100,
+    discountedPrice: 1100,
     id: 101,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -1683,8 +1683,8 @@ const shopData: Product[] = [
   {
     title: "Turn-down, Solid Pink, Short-sleeved, Loose-fitting Shirt And Blouse, Casual",
     reviews: 19,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 2200,
+    discountedPrice: 2200,
     id: 102,
     category: "Women's Tops & Sets",
     imgs: {
@@ -1699,8 +1699,8 @@ const shopData: Product[] = [
   {
     title: "Women's Sexy Long Ruffled Sleeveless Slim Fit",
     reviews: 26,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 900,
+    discountedPrice: 900,
     id: 103,
     category: "Women's Tops & Sets",
     imgs: {
@@ -1717,8 +1717,8 @@ const shopData: Product[] = [
   {
     title: "Women's Long Yellow Halter Neck Sleeveless",
     reviews: 8,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 1200,
+    discountedPrice: 1200,
     id: 104,
     category: "Women's Tops & Sets",
     imgs: {
@@ -1735,8 +1735,8 @@ const shopData: Product[] = [
   {
     title: "a Large Halter Neck Design",
     reviews: 15,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 1500,
+    discountedPrice: 1500,
     id: 105,
     category: "Women's Tops & Sets",
     imgs: {
@@ -1753,8 +1753,8 @@ const shopData: Product[] = [
   {
     title: "a Tie-waist Design",
     reviews: 22,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 1200,
+    discountedPrice: 1200,
     id: 106,
     category: "Women's Tops & Sets",
     imgs: {
@@ -1771,8 +1771,8 @@ const shopData: Product[] = [
   {
     title: "Evening Dress Features",
     reviews: 29,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 2100,
+    discountedPrice: 2100,
     id: 107,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -1787,8 +1787,8 @@ const shopData: Product[] = [
   {
     title: "Finish Shirts And Blouses",
     reviews: 11,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 2200,
+    discountedPrice: 2200,
     id: 108,
     category: "Women's Tops & Sets",
     imgs: {
@@ -1805,8 +1805,8 @@ const shopData: Product[] = [
   {
     title: "Line Off-the-shoulder Evening Gowns",
     reviews: 18,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1650,
+    discountedPrice: 1650,
     id: 109,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -1821,8 +1821,8 @@ const shopData: Product[] = [
   {
     title: "Luxurious Strapless Party Gown",
     reviews: 25,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1450,
+    discountedPrice: 1450,
     id: 110,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -1837,8 +1837,8 @@ const shopData: Product[] = [
   {
     title: "Luxury Intricate Jersey",
     reviews: 7,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 900,
+    discountedPrice: 900,
     id: 111,
     category: "Women's Tops & Sets",
     imgs: {
@@ -1853,8 +1853,8 @@ const shopData: Product[] = [
   {
     title: "Mermaid-style Evening Dresses",
     reviews: 14,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1650,
+    discountedPrice: 1650,
     id: 112,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -1871,8 +1871,8 @@ const shopData: Product[] = [
   {
     title: "New Design For Spring And Summer ye",
     reviews: 21,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 300,
+    discountedPrice: 300,
     id: 113,
     category: "Women's Tops & Sets",
     imgs: {
@@ -1887,8 +1887,8 @@ const shopData: Product[] = [
   {
     title: "New Design For Spring And Summer",
     reviews: 28,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 1800,
+    discountedPrice: 1800,
     id: 114,
     category: "Women's Tops & Sets",
     imgs: {
@@ -1903,8 +1903,8 @@ const shopData: Product[] = [
   {
     title: "Satin Dress Suitable For All Seasons",
     reviews: 10,
-    price: 1000,
-    discountedPrice: 1000,
+    price: 1100,
+    discountedPrice: 1100,
     id: 115,
     category: "Women's Dresses & Abayas",
     imgs: {
@@ -1919,8 +1919,8 @@ const shopData: Product[] = [
   {
     title: "Short Sports Skirts",
     reviews: 17,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 2200,
+    discountedPrice: 2200,
     id: 116,
     category: "Women's Tops & Sets",
     imgs: {
@@ -1937,8 +1937,8 @@ const shopData: Product[] = [
   {
     title: "Sleeveless Top With a Striped Print",
     reviews: 24,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 600,
+    discountedPrice: 600,
     id: 117,
     category: "Women's Tops & Sets",
     imgs: {
@@ -1953,8 +1953,8 @@ const shopData: Product[] = [
   {
     title: "Sleeveless Top",
     reviews: 6,
-    price: 4000,
-    discountedPrice: 4000,
+    price: 1500,
+    discountedPrice: 1500,
     id: 118,
     category: "Women's Tops & Sets",
     imgs: {
@@ -1969,8 +1969,8 @@ const shopData: Product[] = [
   {
     title: "Velvet Swimsuit",
     reviews: 13,
-    price: 1500,
-    discountedPrice: 1500,
+    price: 1800,
+    discountedPrice: 1800,
     id: 119,
     category: "Swimwear",
     imgs: {
@@ -1985,8 +1985,8 @@ const shopData: Product[] = [
   {
     title: "Jogging Training Shorts Men's Pants",
     reviews: 20,
-    price: 100,
-    discountedPrice: 100,
+    price: 350,
+    discountedPrice: 350,
     id: 120,
     category: "Men's Clothing",
     imgs: {
@@ -2005,8 +2005,8 @@ const shopData: Product[] = [
   {
     title: "Lapel Button Down Colored Shirt",
     reviews: 27,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 350,
+    discountedPrice: 350,
     id: 121,
     category: "Men's Clothing",
     imgs: {
@@ -2025,8 +2025,8 @@ const shopData: Product[] = [
   {
     title: "Lapel Button Down Colored Shirt Ice",
     reviews: 9,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 750,
+    discountedPrice: 750,
     id: 122,
     category: "Men's Clothing",
     imgs: {
@@ -2041,8 +2041,8 @@ const shopData: Product[] = [
   {
     title: "Long Sleeve Casual Shirts",
     reviews: 16,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 850,
+    discountedPrice: 850,
     id: 123,
     category: "Men's Clothing",
     imgs: {
@@ -2061,8 +2061,8 @@ const shopData: Product[] = [
   {
     title: "Long Sleeve q Neck Folds",
     reviews: 23,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 1200,
+    discountedPrice: 1200,
     id: 124,
     category: "Men's Clothing",
     imgs: {
@@ -2081,8 +2081,8 @@ const shopData: Product[] = [
   {
     title: "Men's Shirt 3d Printed Beauty",
     reviews: 5,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 1000,
+    discountedPrice: 1000,
     id: 125,
     category: "Men's Clothing",
     imgs: {
@@ -2097,8 +2097,8 @@ const shopData: Product[] = [
   {
     title: "Men's Shirt 3d Printed Bio",
     reviews: 12,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 450,
+    discountedPrice: 450,
     id: 126,
     category: "Men's Clothing",
     imgs: {
@@ -2113,8 +2113,8 @@ const shopData: Product[] = [
   {
     title: "Men's Shirt 3d Printed Multi",
     reviews: 19,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 1200,
+    discountedPrice: 1200,
     id: 127,
     category: "Men's Clothing",
     imgs: {
@@ -2129,8 +2129,8 @@ const shopData: Product[] = [
   {
     title: "Men's Shirt 3d Printed",
     reviews: 26,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 650,
+    discountedPrice: 650,
     id: 128,
     category: "Men's Clothing",
     imgs: {
@@ -2145,8 +2145,8 @@ const shopData: Product[] = [
   {
     title: "Men's Striped Shirt Pants Set",
     reviews: 8,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 550,
+    discountedPrice: 550,
     id: 129,
     category: "Men's Clothing",
     imgs: {
@@ -2161,8 +2161,8 @@ const shopData: Product[] = [
   {
     title: "Modern Textured Fabric",
     reviews: 15,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 350,
+    discountedPrice: 350,
     id: 130,
     category: "Men's Clothing",
     imgs: {
@@ -2181,8 +2181,8 @@ const shopData: Product[] = [
   {
     title: "New Casual Business Shirt",
     reviews: 22,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 1500,
+    discountedPrice: 1500,
     id: 131,
     category: "Men's Clothing",
     imgs: {
@@ -2201,8 +2201,8 @@ const shopData: Product[] = [
   {
     title: "New Casual Business Shirt Dark",
     reviews: 29,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 1000,
+    discountedPrice: 1000,
     id: 132,
     category: "Men's Clothing",
     imgs: {
@@ -2217,8 +2217,8 @@ const shopData: Product[] = [
   {
     title: "Seersucker Men's",
     reviews: 11,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 1200,
+    discountedPrice: 1200,
     id: 133,
     category: "Men's Clothing",
     imgs: {
@@ -2233,8 +2233,8 @@ const shopData: Product[] = [
   {
     title: "Short Scarf For Women",
     reviews: 18,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 850,
+    discountedPrice: 850,
     id: 134,
     category: "Men's Clothing",
     imgs: {
@@ -2249,8 +2249,8 @@ const shopData: Product[] = [
   {
     title: "Summer New Articles",
     reviews: 25,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 650,
+    discountedPrice: 650,
     id: 135,
     category: "Men's Clothing",
     imgs: {
@@ -2265,8 +2265,8 @@ const shopData: Product[] = [
   {
     title: "White Perfect T-shirts",
     reviews: 7,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 1500,
+    discountedPrice: 1500,
     id: 136,
     category: "Men's Clothing",
     imgs: {
@@ -2281,8 +2281,8 @@ const shopData: Product[] = [
   {
     title: "Sleaves Less",
     reviews: 14,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 1500,
+    discountedPrice: 1500,
     id: 137,
     category: "Men's Clothing",
     imgs: {
@@ -2297,8 +2297,8 @@ const shopData: Product[] = [
   {
     title: "White Gray T-shirt",
     reviews: 21,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 950,
+    discountedPrice: 950,
     id: 138,
     category: "Men's Clothing",
     imgs: {
@@ -2313,8 +2313,8 @@ const shopData: Product[] = [
   {
     title: "Men's Shirt",
     reviews: 28,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 250,
+    discountedPrice: 250,
     id: 139,
     category: "Men's Clothing",
     imgs: {
@@ -2329,8 +2329,8 @@ const shopData: Product[] = [
   {
     title: "Men's Shirt",
     reviews: 10,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 250,
+    discountedPrice: 250,
     id: 140,
     category: "Men's Clothing",
     imgs: {
@@ -2345,8 +2345,8 @@ const shopData: Product[] = [
   {
     title: "Dry Shirts",
     reviews: 17,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 350,
+    discountedPrice: 350,
     id: 141,
     category: "Men's Clothing",
     imgs: {
@@ -2361,8 +2361,8 @@ const shopData: Product[] = [
   {
     title: "Long Sleeve Button up Shirt",
     reviews: 24,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 450,
+    discountedPrice: 450,
     id: 142,
     category: "Men's Clothing",
     imgs: {
@@ -2377,8 +2377,8 @@ const shopData: Product[] = [
   {
     title: "Loose Pocket Shirt",
     reviews: 6,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 1200,
+    discountedPrice: 1200,
     id: 143,
     category: "Men's Clothing",
     imgs: {
@@ -2393,8 +2393,8 @@ const shopData: Product[] = [
   {
     title: "Multi-pocket Motorcycle Jeans Men's",
     reviews: 13,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 250,
+    discountedPrice: 250,
     id: 144,
     category: "Men's Clothing",
     imgs: {
@@ -2409,8 +2409,8 @@ const shopData: Product[] = [
   {
     title: "Print Shirt",
     reviews: 20,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 550,
+    discountedPrice: 550,
     id: 145,
     category: "Men's Clothing",
     imgs: {
@@ -2425,8 +2425,8 @@ const shopData: Product[] = [
   {
     title: "Shirt Men Business Casual",
     reviews: 27,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 150,
+    discountedPrice: 150,
     id: 146,
     category: "Men's Clothing",
     imgs: {
@@ -2441,8 +2441,8 @@ const shopData: Product[] = [
   {
     title: "Shirt For Men",
     reviews: 9,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 850,
+    discountedPrice: 850,
     id: 147,
     category: "Men's Clothing",
     imgs: {
@@ -2457,8 +2457,8 @@ const shopData: Product[] = [
   {
     title: "Short Sleeve Crew",
     reviews: 16,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 450,
+    discountedPrice: 450,
     id: 148,
     category: "Men's Clothing",
     imgs: {
@@ -2475,8 +2475,8 @@ const shopData: Product[] = [
   {
     title: "Woolies Tech Long Sleeve",
     reviews: 23,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 1200,
+    discountedPrice: 1200,
     id: 149,
     category: "Men's Clothing",
     imgs: {
@@ -2491,8 +2491,8 @@ const shopData: Product[] = [
   {
     title: "Work Flat Front Shorts",
     reviews: 5,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 250,
+    discountedPrice: 250,
     id: 150,
     category: "Men's Clothing",
     imgs: {
@@ -2507,8 +2507,8 @@ const shopData: Product[] = [
   {
     title: "Summer Men's Fashion",
     reviews: 12,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 950,
+    discountedPrice: 950,
     id: 151,
     category: "Men's Clothing",
     imgs: {
@@ -2525,8 +2525,8 @@ const shopData: Product[] = [
   {
     title: "Two-piece Set Suitable For Casual",
     reviews: 19,
-    price: 2000,
-    discountedPrice: 2000,
+    price: 1500,
+    discountedPrice: 1500,
     id: 152,
     category: "Men's Clothing",
     imgs: {
@@ -2543,8 +2543,8 @@ const shopData: Product[] = [
   {
     title: "Beaming Incandescent",
     reviews: 26,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 7000,
+    discountedPrice: 7000,
     id: 153,
     category: "Pashmina & Shawls",
     imgs: {
@@ -2559,8 +2559,8 @@ const shopData: Product[] = [
   {
     title: "Crimson Court",
     reviews: 8,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 7000,
+    discountedPrice: 7000,
     id: 154,
     category: "Pashmina & Shawls",
     imgs: {
@@ -2591,8 +2591,8 @@ const shopData: Product[] = [
   {
     title: "Festival Weave",
     reviews: 22,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 4000,
+    discountedPrice: 4000,
     id: 156,
     category: "Pashmina & Shawls",
     imgs: {
@@ -2607,8 +2607,8 @@ const shopData: Product[] = [
   {
     title: "Giardino Segreto",
     reviews: 29,
-    price: 6000,
-    discountedPrice: 6000,
+    price: 3000,
+    discountedPrice: 3000,
     id: 157,
     category: "Pashmina & Shawls",
     imgs: {
